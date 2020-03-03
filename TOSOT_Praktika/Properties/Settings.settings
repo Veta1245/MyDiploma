@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TOSOT_Praktika.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TextBoxlastname" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TextBoxfirstname" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TextBoxmiddlename" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="datepickerbirthday" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ComboBoxlistfirm" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TextBoxposition" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ComboBoxlisteducation" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TextBoxnumberdiploma" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DatePickerBeginLearning" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DatePickerEndLearning" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TextBoxNumberSertificate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ComboBoxListLearningProgram" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TextBoxYearLearning" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TextBoxNumberGroup" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TextBoxStudyProgram" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DatePickerDateFilling" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ComboBoxListWorker" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ID1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

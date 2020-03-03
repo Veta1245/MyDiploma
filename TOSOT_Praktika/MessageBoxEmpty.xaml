@@ -1,0 +1,23 @@
+﻿<Window x:Class="TOSOT_Praktika.MessageBoxEmpty"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TOSOT_Praktika"
+        mc:Ignorable="d"
+        Title="MessageBoxEmpty" Height="150" Width="200" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="119*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FFDADAAB" ></Grid>
+        <Grid Grid.Row="2" Background="#FFDADAAB" ></Grid>
+        <Grid Grid.Row="1">
+            <Label Content="Поля не заполнены!" Style="{StaticResource lable}" Margin="21,23,-17,48" FontSize="16"></Label>
+            <Button  x:Name="empty" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="101,61,29,15" Click="empty_Click" Width="Auto" Height="Auto"></Button>
+        </Grid>
+      
+    </Grid>
+</Window>
