@@ -53,7 +53,7 @@ namespace TOSOT_Praktika
                 LastName = LastNameWorker.Text,
                 FirstName = FirstNameWorker.Text,
                 MiddleName = MiddleNameWorker.Text,
-                FIO = FIO.Text
+                
             };
             db.Worker.Add(Newworker);
             db.SaveChanges();

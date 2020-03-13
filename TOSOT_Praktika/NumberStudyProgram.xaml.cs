@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,14 @@ namespace TOSOT_Praktika
     /// </summary>
     public partial class NumberStudyProgram : Window
     {
+        TOSOT db;
         public static string PassingText;
         public NumberStudyProgram()
         {
             InitializeComponent();
+            
 
+            db = new TOSOT();
         }
 
         private void closeNumderStudyProgram_Click(object sender, RoutedEventArgs e)
@@ -35,62 +39,7 @@ namespace TOSOT_Praktika
 
         private void choice_study_program1_Click(object sender, RoutedEventArgs e)
         {
-            if (one.IsChecked == true)
-            {
-                reserve.Text = "01";
-            }
-            if (two.IsChecked == true)
-            {
-                reserve.Text = "02";
-            }
-            if (three.IsChecked == true)
-            {
-                reserve.Text = "03";
-            }
-            if (four.IsChecked == true)
-            {
-                reserve.Text = "04";
-            }
-            if (five.IsChecked == true)
-            {
-                reserve.Text = "05";
-            }
-            if (six.IsChecked == true)
-            {
-                reserve.Text = "06";
-            }
-            if (seven.IsChecked == true)
-            {
-                reserve.Text = "07";
-            }
-            if (eight.IsChecked == true)
-            {
-                reserve.Text = "08";
-            }
-            if (nine.IsChecked == true)
-            {
-                reserve.Text = "09";
-            }
-            if (ten.IsChecked == true)
-            {
-                reserve.Text = "10";
-            }
-            if (eleven.IsChecked == true)
-            {
-                reserve.Text = "11";
-            }
-            if (twelve.IsChecked == true)
-            {
-                reserve.Text = "12";
-            }
-            if (thirteen.IsChecked == true)
-            {
-                reserve.Text = "13";
-            }
-            if (fourteen.IsChecked == true)
-            {
-                reserve.Text = "14";
-            }
+            
 
             PassingText = reserve.Text;
 
@@ -103,6 +52,9 @@ namespace TOSOT_Praktika
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            db = new TOSOT();
+            list.ItemsSource = db.LearningProgram.OrderBy(x=>x.KeyOfProgram.Length).ThenBy(x=>x.KeyOfProgram).ToList();
+            
 
         }
 
@@ -112,6 +64,46 @@ namespace TOSOT_Praktika
             {
                 this.DragMove();
             }
+        }
+
+        private void InsertNewProgram_Click(object sender, RoutedEventArgs e)
+        {
+            if (KeyOfProgram.Text == "" || NameProgram.Text == "")
+            {
+                MessageBoxEmpty mbe = new MessageBoxEmpty();
+                mbe.Show();
+                return;
+            }
+            if (db.LearningProgram.Select(item => item.KeyOfProgram ).Contains(KeyOfProgram.Text))
+            {
+                MessageBoxBusy mbb = new MessageBoxBusy();
+                mbb.Show();
+                return;
+            }
+            LearningProgram NewLearningProgram = new LearningProgram()
+            {
+                KeyOfProgram = KeyOfProgram.Text,
+                Name = NameProgram.Text
+            };
+            db.LearningProgram.Add(NewLearningProgram);
+            db.SaveChanges();
+            list.ItemsSource = db.LearningProgram.ToList();
+            StackPanelNewProgram.Visibility = Visibility.Collapsed;
+        }
+
+        private void DeleteProgram_Click(object sender, RoutedEventArgs e)
+        {
+            int num = (list.SelectedItem as LearningProgram).ID_LearningProgram;
+            var dRow = db.LearningProgram.Where(w => w.ID_LearningProgram == num).FirstOrDefault();
+            db.LearningProgram.Remove(dRow);
+            db.SaveChanges();
+            list.ItemsSource = db.LearningProgram.ToList();
+        }
+
+        private void InsertNewProgram_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanelNewProgram.Visibility = Visibility.Visible;
+           
         }
     }
     }

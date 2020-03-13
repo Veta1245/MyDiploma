@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="NewStudent" Height="400" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown"  >
+        Title="NewStudent" Height="400" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -37,7 +37,7 @@
                         <ColumnDefinition Width="145*"/>
                         <ColumnDefinition Width="181*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseDown="foto_MouseDown" ToolTip="Нажмите, чтобы загрузить фото"   MouseUp="foto_MouseUp"/>
+                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКН,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
                     <Label Grid.Column="1" Content="Фамилия" Style="{StaticResource lable}" Margin="0,20,89,260" FontSize="16" />
                     <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,224">
                         <TextBox x:Name="lastName" BorderThickness="0" Margin="3,3,4,4" Height="22" FontSize="14"/>
@@ -115,7 +115,7 @@
                     <Label Content="Номер удостоверения" Margin="22,77,148,200" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                     <Button x:Name="force_number_sertificate"  Content="Сформировать номер" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="5,111,20,175" Width="Auto" Height="Auto" Click="force_number_sertificate_Click"/>
                     <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="23,181,20,99" Width="Auto" Grid.ColumnSpan="2">
-                        <ComboBox x:Name="listLearningProgramm"  Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
+                        <ComboBox x:Name="listLearningProgramm"  ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="Name_Program" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
                         </ComboBox>
                     </Border>
                     <Button x:Name="insert_new_learning_program" Content="Добавить программу" Margin="23,222,0,65" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_learning_program_Click">

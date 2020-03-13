@@ -20,15 +20,22 @@ namespace TOSOT_Praktika
     /// </summary>
     public partial class MainPage : Page
     {
+        TOSOT db;
         public MainPage()
         {
             InitializeComponent();
+            db = new TOSOT();
         }
 
         private void insert_NewStudent(object sender, RoutedEventArgs e)
         {
             NewStudent ns = new NewStudent();
             ns.Show();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListStudent.ItemsSource = db.Student.ToList();
         }
     }
 }

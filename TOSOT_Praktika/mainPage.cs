@@ -19,4 +19,14 @@ namespace TOSOT_Praktika
     {
         public static System.Windows.Controls.Frame PageRegistration;
     }
+    partial class Worker
+    {
+        public string FullName
+        {
+            get
+            {
+                return $"{LastName} {FirstName} {MiddleName}";
+            }
+        }
+    }
 }

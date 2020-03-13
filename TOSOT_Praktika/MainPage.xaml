@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TOSOT_Praktika"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage" >
+      Title="MainPage" Loaded="Page_Loaded" >
 
     <Grid>
         <TabControl Background="Transparent" BorderBrush="White" Margin="-16,0,-7,-9">
@@ -15,6 +15,15 @@
                     <Button x:Name="new_student" Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Width="141" Click="insert_NewStudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,5,0,0"></Button>
                     <Button x:Name="timetable" Content="Составить расписание" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,5,0,0" Width="140"></Button>
                     <Button x:Name="timetable_Copy" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,5,0,0" Width="226"/>
+                    <DataGrid x:Name="ListStudent" Style="{DynamicResource datagrid}"  Margin="29,55,19,33" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="85"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="Имя" Width="50"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=MiddleName}" Header="Отчество" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Birthday}" Header="Дата рождения" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=ID_Firm}" Header="Фирма" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
     </TabItem>
         </TabControl>

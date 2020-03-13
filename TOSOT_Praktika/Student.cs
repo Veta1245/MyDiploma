@@ -19,14 +19,16 @@ namespace TOSOT_Praktika
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public string Post { get; set; }
-        public System.DateTime Birthday { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
         public string Education { get; set; }
-        public int Number_of_certificate { get; set; }
-        public int ID_Training_program { get; set; }
-        public int ID_Firm { get; set; }
+        public string Number_of_certificate { get; set; }
+        public Nullable<int> ID_Training_program { get; set; }
+        public Nullable<int> ID_Firm { get; set; }
         public byte[] Student_photo { get; set; }
+        public Nullable<System.DateTime> BeginLearning { get; set; }
+        public Nullable<System.DateTime> EndLearning { get; set; }
+        public string NimberDiploma { get; set; }
     
-        public virtual Education Education1 { get; set; }
         public virtual Firm Firm { get; set; }
         public virtual TrainingProgram TrainingProgram { get; set; }
     }

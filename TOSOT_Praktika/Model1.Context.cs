@@ -27,10 +27,10 @@ namespace TOSOT_Praktika
     
         public virtual DbSet<Composition> Composition { get; set; }
         public virtual DbSet<Course> Course { get; set; }
-        public virtual DbSet<Education> Education { get; set; }
         public virtual DbSet<Firm> Firm { get; set; }
         public virtual DbSet<Group> Group { get; set; }
         public virtual DbSet<LearningProgram> LearningProgram { get; set; }
+        public virtual DbSet<RegistrationCertificates> RegistrationCertificates { get; set; }
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<TrainingProgram> TrainingProgram { get; set; }

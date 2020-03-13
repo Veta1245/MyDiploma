@@ -31,7 +31,10 @@ namespace TOSOT_Praktika
 
             InitializeComponent();
             db = new TOSOT();
+            listFirm.ItemsSource = db.Firm.ToList();
+            listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();
             fill_Combobox();
+            fill_Combobox1();
 
             lastName.Text = Properties.Settings.Default.TextBoxlastname;
             firstName.Text = Properties.Settings.Default.TextBoxfirstname;
@@ -46,7 +49,19 @@ namespace TOSOT_Praktika
             numberSertificate.Text = Properties.Settings.Default.TextBoxNumberSertificate;
             listLearningProgramm.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxListLearningProgram);
         }
+
+        private void fill_Combobox1()
+        {
+            TOSOT db = new TOSOT();
+            var item = db.TrainingProgram.ToList();
+            NameProgram = item;
+            DataContext = NameProgram;
+        }
+
         public List<Firm> firm { get; set; }
+        public List<TrainingProgram> NameProgram { get; set; }
+        public string FilePath { get; private set; }
+
         private void fill_Combobox()
         {
             TOSOT db = new TOSOT();
@@ -130,14 +145,14 @@ namespace TOSOT_Praktika
 
             if (openDialog.ShowDialog() == true)
             {
+                FilePath = openDialog.FileName;
                 foto.Source = new BitmapImage(new Uri(openDialog.FileName));
                 return;
             }
-        }
-        
-        private void foto_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-           
+            else
+            {
+                //FilePath =
+            }
         }
 
         private void insert_new_learning_program_Click(object sender, RoutedEventArgs e)
@@ -174,13 +189,44 @@ namespace TOSOT_Praktika
 
         private void insert_newStudent_Click(object sender, RoutedEventArgs e)
         {
+            Firm firm = (Firm)listFirm.SelectedItem;
+            TrainingProgram trainingProg = (TrainingProgram)listLearningProgramm.SelectedItem;
             if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || listLearningProgramm.SelectedItem == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();
                 return;
             }
-           // if(db.Student.Select(item=>item.LastName +""+ item.FirstName +""+ item.MiddleName + "" + item.Birthday + "" + item. Firm + "" + item.Post + "" + item.Education + "" + item.Number_of_certificate + "" + item. + "" +))
+           /* if(db.Student.Select(item=>item.LastName +""+ item.FirstName +""+ item.MiddleName + "" + item.Birthday + "" + item. Firm + "" + item.Post + "" + item.Number_of_certificate + "" + item.ID_Training_program + "" + item.ID_Training_program + "" +item.ID_Firm).Contains(lastName.Text+""+ firstName.Text + "" + middleName.Text + "" + Birthday.SelectedDate + "" + lastName.Text + "" + listFirm.SelectedItem + "" + position.Text  + "" + numberdiploma.Text + "" + beginLearning.SelectedDate + "" + endLearning.SelectedDate + "" + numberSertificate.Text + "" + listLearningProgramm.SelectedItem))
+            {
+                MessageBoxBusy mbb = new MessageBoxBusy();
+                mbb.Show();
+                return;
+            }*/
+            Student NewStudent = new Student()
+            {
+                LastName = lastName.Text,
+                FirstName = firstName.Text,
+                MiddleName = middleName.Text,
+                Birthday = Convert.ToDateTime(Birthday.SelectedDate),
+                Firm = firm,
+                Post = position.Text,
+                NimberDiploma = numberdiploma.Text,
+                Education = listeducation.Text,
+                BeginLearning = Convert.ToDateTime(beginLearning.SelectedDate),
+                EndLearning = Convert.ToDateTime(endLearning.SelectedDate),
+                Number_of_certificate = numberSertificate.Text,
+                TrainingProgram = trainingProg,
+                Student_photo= ConvertImageToByteClass.ImageToByte(FilePath)
+        };
+            db.Student.Add(NewStudent);
+            db.SaveChanges();
+            MessageBox.Show("Запись добавлена успешно");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            numberSertificate.Text = FormNumberSertificate.PassingText1;
         }
     }
 }

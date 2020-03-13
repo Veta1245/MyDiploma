@@ -12,18 +12,14 @@ namespace TOSOT_Praktika
     using System;
     using System.Collections.Generic;
     
-    public partial class Education
+    public partial class RegistrationCertificates
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Education()
-        {
-            this.Student = new HashSet<Student>();
-        }
+        public int IdCertificate { get; set; }
+        public int ProtocolNumber { get; set; }
+        public int IdWorker { get; set; }
+        public System.DateTime DateCreate { get; set; }
+        public string Code { get; set; }
     
-        public string ID_Education { get; set; }
-        public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Student { get; set; }
+        public virtual Worker Worker { get; set; }
     }
 }

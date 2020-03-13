@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="FormNumberSertificate" Height="400" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MouseDown="Window_MouseDown" >
+        Title="FormNumberSertificate" Height="400" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Topmost="True">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -40,30 +41,28 @@
                     <TextBox x:Name="numberGroup" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,2" Width="Auto" Height="22" FontSize="14"/>
                 </Border>
                 <Label Content="Номер протокола" Margin="10,61,302,233" Style="{StaticResource lable}" FontSize="16"/>
-                <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="215,148,190,147" Width="Auto" Height="Auto" Background="White">
-                    <TextBox SelectionChanged="studyProgram_SelectionChanged" x:Name="studyProgram" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,2" Width="Auto" Height="22" FontSize="14" IsEnabled="False"/>
-                </Border>
+                
+                    <Border Style="{StaticResource OvalTexBox}" Margin="215,149,201,146" Width="Auto" Height="Auto" Background="White" >
+                        <TextBox x:Name="studyProgram" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,2" Width="Auto" Height="22" FontSize="14" IsEnabled="False" />
+                    </Border>
+                
                 <Label Content="Номер программы обучения" Margin="215,121,-3,173" Style="{StaticResource lable}" FontSize="16"/>
-                <Button x:Name="choice_study_program" Content="Выбрать" Margin="319,150,80,150" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="choice_study_program_Click" FontSize="14">
+                <Button x:Name="choice_study_program" Content="Выбрать" Margin="308,150,91,145" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="choice_study_program_Click" FontSize="14">
                     <Button.ToolTip>Существующие номера</Button.ToolTip>
                 </Button>
-                <Border Style="{StaticResource OvalTexBox}" Margin="10,149,370,146" Width="Auto" Height="Auto" Background="White">
-                    <DatePicker x:Name="dateFilling"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14"/>
+                <Label Content="*Дата заполнения ставится сегодняшним числом" Margin="0,230,158,63" Style="{StaticResource lable}" FontSize="16"/>
+                <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="10,149,336,146" Width="Auto" Background="White">
+                    <ComboBox x:Name="listworker" SelectedValuePath="ID" Grid.Column="0" IsEditable="True"  BorderThickness="0" Margin="2,2,2,2" FontSize="14" DisplayMemberPath="FullName" ></ComboBox>
                 </Border>
-                <Label Content="Дата заполнения" Margin="8,120,314,173" Style="{StaticResource lable}" FontSize="16"/>
-                <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="10,208,336,87" Width="Auto" Background="White">
-                    <ComboBox x:Name="listworker" ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="FIO" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
-
-                    </ComboBox>
-                </Border>
-                <Label Content="Внес данные" Margin="10,185,178,108" Style="{StaticResource lable}" FontSize="16"/>
+                <Label Content="Внес данные" Margin="10,120,302,173" Style="{StaticResource lable}" FontSize="16"/>
                 <Button x:Name="force_number_sertificate1" Content="Добавить" Margin="319,285,80,10" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto"  FontSize="14" Click="force_number_sertificate1_Click" Visibility="Hidden" >
                     <Button.ToolTip>Прикрепить к специалисту</Button.ToolTip>
                 </Button>
-                <Button x:Name="collectNumber" Content="Сформировать номер" Margin="121,285,203,10" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto"  FontSize="14" Click="collectNumber_Click" >
+                <Button x:Name="collectNumber" Content="Сформировать номер" Margin="233,285,91,10" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto"  FontSize="14" Click="collectNumber_Click" >
                     <Button.ToolTip>Номер удостоверения</Button.ToolTip>
                 </Button>
                 <TextBox x:Name="RegistrNumber" Style="{StaticResource TextBoxInOval}" Margin="319,10,60,298" Width="Auto" Height="22" FontSize="14" Visibility="Collapsed" />
+                <TextBox x:Name="sertificate" HorizontalAlignment="Left" Height="23" Margin="48,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Collapsed"/>
             </Grid>
 
 

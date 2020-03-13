@@ -42,11 +42,25 @@ namespace TOSOT_Praktika
                 mbe.Show();
                 return;
             }
-            
+            if (db.TrainingProgram.Select(item => item.Name_Program).Contains(NameLearningProgram.Text))
+            {
+                MessageBoxBusy mbb = new MessageBoxBusy();
+                mbb.Show();
+                return;
+            }
+            TrainingProgram NewTrainingProgram = new TrainingProgram()
+            {
+                Name_Program = NameLearningProgram.Text,
+                Duration = Convert.ToInt32(timelong.Text)
+            };
+            db.TrainingProgram.Add(NewTrainingProgram);
+            db.SaveChanges();
             NewStudent ns = new NewStudent();
             ns.TabControlNewStudent.SelectedIndex = 2;
             ns.Show();
             this.Close();
+            MessageBoxInsert mbi = new MessageBoxInsert();
+            mbi.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

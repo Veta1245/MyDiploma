@@ -14,17 +14,8 @@ namespace TOSOT_Praktika
     
     public partial class LearningProgram
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LearningProgram()
-        {
-            this.TrainingProgram = new HashSet<TrainingProgram>();
-        }
-    
         public int ID_LearningProgram { get; set; }
         public string Name { get; set; }
-        public int KeyOfProgram { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TrainingProgram> TrainingProgram { get; set; }
+        public string KeyOfProgram { get; set; }
     }
 }

@@ -24,11 +24,9 @@ namespace TOSOT_Praktika
         public int ID_Training_program { get; set; }
         public string Name_Program { get; set; }
         public int Duration { get; set; }
-        public int Key_Of_Training_Program { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
-        public virtual LearningProgram LearningProgram { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Student { get; set; }
     }

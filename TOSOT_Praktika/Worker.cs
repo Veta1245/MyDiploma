@@ -18,6 +18,7 @@ namespace TOSOT_Praktika
         public Worker()
         {
             this.Course = new HashSet<Course>();
+            this.RegistrationCertificates = new HashSet<RegistrationCertificates>();
         }
     
         public int ID_Worker { get; set; }
@@ -29,5 +30,7 @@ namespace TOSOT_Praktika
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RegistrationCertificates> RegistrationCertificates { get; set; }
     }
 }

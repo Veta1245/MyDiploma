@@ -41,7 +41,7 @@
 
                 </StackPanel>
                 <Button  x:Name="Authorisation" Content="Войти" Style="{StaticResource MyButtonStyle}" Margin="111,135,113,62" Width="Auto" Height="Auto" Click="Authorisation_Click" Cursor="Hand"   />
-                <Button  x:Name="PasswordUpdate" Content="Забыли пароль?" Style="{StaticResource MyButtonTransparent}" Margin="98,161,98,33" Width="Auto" Height="Auto" Click="PasswordUpdate_Click" Cursor="Hand" />
+                <Button  x:Name="PasswordUpdate" Content="Забыли пароль?" ToolTip="Изменить пароль" Style="{StaticResource MyButtonTransparent}" Margin="98,161,98,33" Width="Auto" Height="Auto" Click="PasswordUpdate_Click" Cursor="Hand" />
                 <Button x:Name="Registration" Content="Зарегистрироваться" Style="{StaticResource MyButtonStyle}" Margin="76,192,75,6" Width="Auto" Height="Auto" Click="Registration_Click" Cursor="Hand"/>
 
 

@@ -34,15 +34,15 @@
             <StackPanel Orientation="Vertical" Margin="0,0,0,11" >
                 <Grid Grid.Row="1" Height="292" Margin="0,0,143,0">
                     <Label Content="Название программы обучения" Style="{StaticResource ResourceKey=lable}" Margin="19,17,-161,0" FontSize="16" Height="35" VerticalAlignment="Top"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="19,42,-123,214" Width="Auto" Height="36" Background="White">
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="19,43,-123,220" Width="Auto" Height="Auto" Background="White">
                         <TextBox x:Name="NameLearningProgram" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="7,2,7,3" Width="Auto"/>
                     </Border>
                     <Button x:Name="insert_new_learning_program" Content="Добавить" Margin="111,157,-114,98" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_learning_program_Click">
                         <Button.ToolTip>Если нет в списке</Button.ToolTip>
                     </Button>
-                    <Label Content="Кол-во часов" Style="{StaticResource ResourceKey=lable}" Margin="19,89,-123,0" FontSize="16" Height="35" VerticalAlignment="Top"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="19,113,10,143" Width="Auto" Height="36" Background="White">
-                        <TextBox x:Name="timelong" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="7,2,7,3" Width="Auto"/>
+                    <Label Content="Кол-во часов" Style="{StaticResource ResourceKey=lable}" Margin="19,73,-123,0" FontSize="16" Height="35" VerticalAlignment="Top"/>
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="19,99,10,165" Width="Auto" Height="Auto" Background="White">
+                        <TextBox x:Name="timelong" Style="{StaticResource TextBoxInOval}"  FontSize="14" Height="Auto" Margin="7,2,7,3" Width="Auto"/>
                     </Border>
                 </Grid>
 

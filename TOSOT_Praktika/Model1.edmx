@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TOSOTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TOSOTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Composition">
           <Key>
             <PropertyRef Name="ID_Composition" />
@@ -21,13 +21,6 @@
           <Property Name="ID_Training_program" Type="int" Nullable="false" />
           <Property Name="ID_Worler" Type="nchar" MaxLength="10" />
           <Property Name="ID_Teacher" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Education">
-          <Key>
-            <PropertyRef Name="ID_Education" />
-          </Key>
-          <Property Name="ID_Education" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Firm">
           <Key>
@@ -51,23 +44,36 @@
           </Key>
           <Property Name="ID_LearningProgram" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KeyOfProgram" Type="int" Nullable="false" />
+          <Property Name="KeyOfProgram" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationCertificates">
+          <Key>
+            <PropertyRef Name="IdCertificate" />
+          </Key>
+          <Property Name="IdCertificate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolNumber" Type="int" Nullable="false" />
+          <Property Name="IdWorker" Type="int" Nullable="false" />
+          <Property Name="DateCreate" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="ID_Student" />
           </Key>
           <Property Name="ID_Student" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Post" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Birthday" Type="date" Nullable="false" />
-          <Property Name="Education" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Number_of_certificate" Type="int" Nullable="false" />
-          <Property Name="ID_Training_program" Type="int" Nullable="false" />
-          <Property Name="ID_Firm" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Education" Type="nvarchar" MaxLength="50" />
+          <Property Name="Number_of_certificate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Training_program" Type="int" />
+          <Property Name="ID_Firm" Type="int" />
           <Property Name="Student_photo" Type="image" />
+          <Property Name="BeginLearning" Type="date" />
+          <Property Name="EndLearning" Type="date" />
+          <Property Name="NimberDiploma" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -85,7 +91,6 @@
           <Property Name="ID_Training_program" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_Program" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Duration" Type="int" Nullable="false" />
-          <Property Name="Key_Of_Training_Program" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
@@ -158,61 +163,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Education">
-          <End Role="Education" Type="Self.Education" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+        <Association Name="FK_RegistrationCertificates_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="RegistrationCertificates" Type="Self.RegistrationCertificates" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Education">
-              <PropertyRef Name="ID_Education" />
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
             </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Education" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_Firm">
-          <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="ID_Firm" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="ID_Firm" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_TrainingProgram">
-          <End Role="TrainingProgram" Type="Self.TrainingProgram" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TrainingProgram">
-              <PropertyRef Name="ID_Training_program" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="ID_Training_program" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TrainingProgram_LearningProgram">
-          <End Role="LearningProgram" Type="Self.LearningProgram" Multiplicity="1" />
-          <End Role="TrainingProgram" Type="Self.TrainingProgram" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LearningProgram">
-              <PropertyRef Name="ID_LearningProgram" />
-            </Principal>
-            <Dependent Role="TrainingProgram">
-              <PropertyRef Name="Key_Of_Training_Program" />
+            <Dependent Role="RegistrationCertificates">
+              <PropertyRef Name="IdWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище TOSOTModelContainer">
           <EntitySet Name="Composition" EntityType="Self.Composition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LearningProgram" EntityType="Self.LearningProgram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationCertificates" EntityType="Self.RegistrationCertificates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrainingProgram" EntityType="Self.TrainingProgram" Schema="dbo" store:Type="Tables" />
@@ -237,25 +206,12 @@
             <End Role="Composition" EntitySet="Composition" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Education" Association="Self.FK_Student_Education">
-            <End Role="Education" EntitySet="Education" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Firm" Association="Self.FK_Student_Firm">
-            <End Role="Firm" EntitySet="Firm" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_TrainingProgram" Association="Self.FK_Student_TrainingProgram">
-            <End Role="TrainingProgram" EntitySet="TrainingProgram" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TrainingProgram_LearningProgram" Association="Self.FK_TrainingProgram_LearningProgram">
-            <End Role="LearningProgram" EntitySet="LearningProgram" />
-            <End Role="TrainingProgram" EntitySet="TrainingProgram" />
+          <AssociationSet Name="FK_RegistrationCertificates_Worker" Association="Self.FK_RegistrationCertificates_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="RegistrationCertificates" EntitySet="RegistrationCertificates" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TOSOTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -280,14 +236,6 @@
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Course_Teacher" FromRole="Course" ToRole="Teacher" />
           <NavigationProperty Name="TrainingProgram" Relationship="Self.FK_Course_TrainingProgram" FromRole="Course" ToRole="TrainingProgram" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Course_Worker" FromRole="Course" ToRole="Worker" />
-        </EntityType>
-        <EntityType Name="Education">
-          <Key>
-            <PropertyRef Name="ID_Education" />
-          </Key>
-          <Property Name="ID_Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Education" FromRole="Education" ToRole="Student" />
         </EntityType>
         <EntityType Name="Firm">
           <Key>
@@ -314,25 +262,37 @@
           </Key>
           <Property Name="ID_LearningProgram" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KeyOfProgram" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TrainingProgram" Relationship="Self.FK_TrainingProgram_LearningProgram" FromRole="LearningProgram" ToRole="TrainingProgram" />
+          <Property Name="KeyOfProgram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationCertificates">
+          <Key>
+            <PropertyRef Name="IdCertificate" />
+          </Key>
+          <Property Name="IdCertificate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolNumber" Type="Int32" Nullable="false" />
+          <Property Name="IdWorker" Type="Int32" Nullable="false" />
+          <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_RegistrationCertificates_Worker" FromRole="RegistrationCertificates" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="ID_Student" />
           </Key>
           <Property Name="ID_Student" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Number_of_certificate" Type="Int32" Nullable="false" />
-          <Property Name="ID_Training_program" Type="Int32" Nullable="false" />
-          <Property Name="ID_Firm" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number_of_certificate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Training_program" Type="Int32" />
+          <Property Name="ID_Firm" Type="Int32" />
           <Property Name="Student_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Education1" Relationship="Self.FK_Student_Education" FromRole="Student" ToRole="Education" />
+          <Property Name="BeginLearning" Type="DateTime" Precision="0" />
+          <Property Name="EndLearning" Type="DateTime" Precision="0" />
+          <Property Name="NimberDiploma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Firm" Relationship="Self.FK_Student_Firm" FromRole="Student" ToRole="Firm" />
           <NavigationProperty Name="TrainingProgram" Relationship="Self.FK_Student_TrainingProgram" FromRole="Student" ToRole="TrainingProgram" />
         </EntityType>
@@ -353,9 +313,7 @@
           <Property Name="ID_Training_program" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_Program" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Key_Of_Training_Program" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Course_TrainingProgram" FromRole="TrainingProgram" ToRole="Course" />
-          <NavigationProperty Name="LearningProgram" Relationship="Self.FK_TrainingProgram_LearningProgram" FromRole="TrainingProgram" ToRole="LearningProgram" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_TrainingProgram" FromRole="TrainingProgram" ToRole="Student" />
         </EntityType>
         <EntityType Name="Worker">
@@ -369,6 +327,7 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Course_Worker" FromRole="Worker" ToRole="Course" />
+          <NavigationProperty Name="RegistrationCertificates" Relationship="Self.FK_RegistrationCertificates_Worker" FromRole="Worker" ToRole="RegistrationCertificates" />
         </EntityType>
         <Association Name="FK_Group_Composition">
           <End Role="Composition" Type="Self.Composition" Multiplicity="1" />
@@ -430,20 +389,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Education">
-          <End Role="Education" Type="Self.Education" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Education">
-              <PropertyRef Name="ID_Education" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Education" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_Firm">
-          <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
+          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Firm">
@@ -454,20 +401,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TrainingProgram_LearningProgram">
-          <End Role="LearningProgram" Type="Self.LearningProgram" Multiplicity="1" />
-          <End Role="TrainingProgram" Type="Self.TrainingProgram" Multiplicity="*" />
+        <Association Name="FK_RegistrationCertificates_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="RegistrationCertificates" Type="Self.RegistrationCertificates" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LearningProgram">
-              <PropertyRef Name="ID_LearningProgram" />
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
             </Principal>
-            <Dependent Role="TrainingProgram">
-              <PropertyRef Name="Key_Of_Training_Program" />
+            <Dependent Role="RegistrationCertificates">
+              <PropertyRef Name="IdWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_TrainingProgram">
-          <End Role="TrainingProgram" Type="Self.TrainingProgram" Multiplicity="1" />
+          <End Role="TrainingProgram" Type="Self.TrainingProgram" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TrainingProgram">
@@ -481,10 +428,10 @@
         <EntityContainer Name="TOSOT" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Composition" EntityType="Self.Composition" />
           <EntitySet Name="Course" EntityType="Self.Course" />
-          <EntitySet Name="Education" EntityType="Self.Education" />
           <EntitySet Name="Firm" EntityType="Self.Firm" />
           <EntitySet Name="Group" EntityType="Self.Group" />
           <EntitySet Name="LearningProgram" EntityType="Self.LearningProgram" />
+          <EntitySet Name="RegistrationCertificates" EntityType="Self.RegistrationCertificates" />
           <EntitySet Name="Student" EntityType="Self.Student" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" />
           <EntitySet Name="TrainingProgram" EntityType="Self.TrainingProgram" />
@@ -509,17 +456,13 @@
             <End Role="Worker" EntitySet="Worker" />
             <End Role="Course" EntitySet="Course" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Education" Association="Self.FK_Student_Education">
-            <End Role="Education" EntitySet="Education" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
           <AssociationSet Name="FK_Student_Firm" Association="Self.FK_Student_Firm">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_TrainingProgram_LearningProgram" Association="Self.FK_TrainingProgram_LearningProgram">
-            <End Role="LearningProgram" EntitySet="LearningProgram" />
-            <End Role="TrainingProgram" EntitySet="TrainingProgram" />
+          <AssociationSet Name="FK_RegistrationCertificates_Worker" Association="Self.FK_RegistrationCertificates_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="RegistrationCertificates" EntitySet="RegistrationCertificates" />
           </AssociationSet>
           <AssociationSet Name="FK_Student_TrainingProgram" Association="Self.FK_Student_TrainingProgram">
             <End Role="TrainingProgram" EntitySet="TrainingProgram" />
@@ -551,14 +494,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Education">
-            <EntityTypeMapping TypeName="TOSOTModel.Education">
-              <MappingFragment StoreEntitySet="Education">
-                <ScalarProperty Name="ID_Education" ColumnName="ID_Education" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Firm">
             <EntityTypeMapping TypeName="TOSOTModel.Firm">
               <MappingFragment StoreEntitySet="Firm">
@@ -586,6 +521,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationCertificates">
+            <EntityTypeMapping TypeName="TOSOTModel.RegistrationCertificates">
+              <MappingFragment StoreEntitySet="RegistrationCertificates">
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+                <ScalarProperty Name="ProtocolNumber" ColumnName="ProtocolNumber" />
+                <ScalarProperty Name="IdWorker" ColumnName="IdWorker" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Student">
             <EntityTypeMapping TypeName="TOSOTModel.Student">
               <MappingFragment StoreEntitySet="Student">
@@ -600,6 +546,9 @@
                 <ScalarProperty Name="ID_Training_program" ColumnName="ID_Training_program" />
                 <ScalarProperty Name="ID_Firm" ColumnName="ID_Firm" />
                 <ScalarProperty Name="Student_photo" ColumnName="Student_photo" />
+                <ScalarProperty Name="BeginLearning" ColumnName="BeginLearning" />
+                <ScalarProperty Name="EndLearning" ColumnName="EndLearning" />
+                <ScalarProperty Name="NimberDiploma" ColumnName="NimberDiploma" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -619,7 +568,6 @@
                 <ScalarProperty Name="ID_Training_program" ColumnName="ID_Training_program" />
                 <ScalarProperty Name="Name_Program" ColumnName="Name_Program" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Key_Of_Training_Program" ColumnName="Key_Of_Training_Program" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

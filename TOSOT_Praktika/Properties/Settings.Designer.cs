@@ -226,12 +226,192 @@ namespace TOSOT_Praktika.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int ID1 {
+        public string ID01 {
             get {
-                return ((int)(this["ID1"]));
+                return ((string)(this["ID01"]));
             }
             set {
-                this["ID1"] = value;
+                this["ID01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID02 {
+            get {
+                return ((string)(this["ID02"]));
+            }
+            set {
+                this["ID02"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID03 {
+            get {
+                return ((string)(this["ID03"]));
+            }
+            set {
+                this["ID03"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID04 {
+            get {
+                return ((string)(this["ID04"]));
+            }
+            set {
+                this["ID04"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID05 {
+            get {
+                return ((string)(this["ID05"]));
+            }
+            set {
+                this["ID05"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID06 {
+            get {
+                return ((string)(this["ID06"]));
+            }
+            set {
+                this["ID06"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID07 {
+            get {
+                return ((string)(this["ID07"]));
+            }
+            set {
+                this["ID07"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID08 {
+            get {
+                return ((string)(this["ID08"]));
+            }
+            set {
+                this["ID08"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID09 {
+            get {
+                return ((string)(this["ID09"]));
+            }
+            set {
+                this["ID09"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID10 {
+            get {
+                return ((string)(this["ID10"]));
+            }
+            set {
+                this["ID10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID11 {
+            get {
+                return ((string)(this["ID11"]));
+            }
+            set {
+                this["ID11"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID12 {
+            get {
+                return ((string)(this["ID12"]));
+            }
+            set {
+                this["ID12"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID13 {
+            get {
+                return ((string)(this["ID13"]));
+            }
+            set {
+                this["ID13"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string ID14 {
+            get {
+                return ((string)(this["ID14"]));
+            }
+            set {
+                this["ID14"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020")]
+        public long DateNow {
+            get {
+                return ((long)(this["DateNow"]));
+            }
+            set {
+                this["DateNow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string ID15 {
+            get {
+                return ((string)(this["ID15"]));
+            }
+            set {
+                this["ID15"] = value;
             }
         }
     }

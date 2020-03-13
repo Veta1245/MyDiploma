@@ -20,6 +20,16 @@
                     <GradientStop Color="#FFF7F7CE" Offset="0.067"/>
                 </LinearGradientBrush>
             </Grid.Background>
+            <StackPanel x:Name="StackPanelNewProgram" Margin="331,10,10,154" Visibility="Collapsed"  >
+                <Label Content="Код" Style="{StaticResource lable}" Height="28"></Label>
+                <Border BorderBrush="#FFB9B994" Background="White" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,0,0,0">
+                    <TextBox x:Name="KeyOfProgram" BorderThickness="0" Margin="3,3,4,4" Height="22" FontSize="14"/>
+                </Border>
+                <Label Content="Название программы" Style="{StaticResource lable}" Height="30"></Label>
+                <Border BorderBrush="#FFB9B994" Background="White" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,0,0,0">
+                    <TextBox x:Name="NameProgram" BorderThickness="0" Margin="3,3,4,4" Height="22" FontSize="14"/>
+                </Border>
+            </StackPanel>
         </Grid>
         <Label Grid.Row="0" Margin="10,0,200,0" Content="Список номеров программ обучения" Style="{StaticResource lable}" FontSize="16"></Label>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="344,0,0,0">
@@ -33,39 +43,23 @@
                 <RowDefinition Height="0*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton x:Name="one" Content="01" Margin="10,10,340,262" FontSize="14" Grid.RowSpan="2" Cursor="Hand" ></RadioButton>
-            <RadioButton x:Name="two" Content="02" Margin="10,38,283,234" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="three" Content="03" Margin="10,66,283,206" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="four" Content="04" Margin="10,94,283,178" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="five" Content="05" Margin="10,122,283,150" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="six" Content="06" Margin="10,150,283,122" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="seven" Content="07" Margin="10,178,283,94" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="eight" Content="08" Margin="245,10,48,262" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="nine" Content="09" Margin="245,38,48,234" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="ten" Content="10" Margin="245,66,48,206" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="eleven"  Content="11" Margin="245,94,48,178" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="twelve" Content="12" Margin="245,122,48,150" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="thirteen" Content="13" Margin="245,150,48,122" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <RadioButton x:Name="fourteen" Content="14" Margin="245,178,48,94" FontSize="14" Grid.RowSpan="2" Cursor="Hand"/>
-            <Label Content="Охрана труда" Margin="43,5,252,267" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Высота" Margin="43,33,252,239" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="ПТМ" Margin="43,61,252,211" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Оказание первой помощи" Margin="43,89,252,183" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Техносферная безопасность" Margin="43,117,247,155" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Стерилизаторы" Margin="43,145,252,127" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="ПромБезопасность" Margin="43,173,247,99" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Рабочие" Margin="278,5,0,267" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Радиационная безопасность" Margin="278,33,0,239" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Экология" Margin="278,61,0,211" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Электробезопасность" Margin="278,89,0,183" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="ГО и ЧС" Margin="278,117,0,155" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Профпотология" Margin="278,145,0,127" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Label Content="Лечебное дело" Margin="278,173,0,99" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"/>
-            <Button x:Name="choice_study_program1" Content="Выбрать" Margin="351,231,20,38" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="choice_study_program1_Click" FontSize="14" Grid.RowSpan="2">
+            <Button x:Name="choice_study_program1" Content="Выбрать" ToolTip="Выбрать код программы" Margin="347,248,24,21" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="choice_study_program1_Click" FontSize="14" Grid.RowSpan="2" FontWeight="Bold">
 
             </Button>
-            <TextBox x:Name="reserve" HorizontalAlignment="Left" Height="23" Margin="121,231,0,0" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Collapsed"/>
 
+            <Grid  Grid.Row="1" x:Name="LearningList" Margin="0,0,0,10" >
+                <DataGrid Style="{DynamicResource datagrid}"  x:Name="list" Height="271" AutoGenerateColumns="False" Margin="10,10,160,0" VerticalAlignment="Top" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"   >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=KeyOfProgram}" Header="Код" Width="40"/>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название программы обучения" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Margin="0,229,392,0" >
+                    <TextBox x:Name="reserve" Height="23" TextWrapping="Wrap"  Margin="0,0,127,0" Text="{Binding SelectedItem.KeyOfProgram,  ElementName=list}" Visibility="Collapsed" />
+                </StackPanel>
+            </Grid>
+            <Button x:Name="InsertNewProgram" Content="Добавить" ToolTip="ПКН развернуть для заполнения, ЛКМ добавить" Margin="347,146,24,123" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="InsertNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown"/>
+            <Button x:Name="DeleteProgram" Content="Удалить" ToolTip="Удалить программу из списка" Margin="347,183,24,86" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="DeleteProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold"/>
         </Grid>
     </Grid>
 
