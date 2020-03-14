@@ -9,17 +9,22 @@ namespace TOSOT_Praktika
 {
     class ConvertImageToByteClass
     {
-        public static byte[] ImageToByte(string Path)
+        public static byte[] ImageToByte(string strPath)
 
         {
-
             byte[] image;
 
-            image = File.ReadAllBytes(Path);
-
+            if (string.IsNullOrEmpty(strPath))
+            {
+                var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string filePath = Path.Combine(projectPath, "Resources/nophoto.jpg");
+                image = File.ReadAllBytes(filePath);
+            }
+            else
+            {
+                image = File.ReadAllBytes(strPath);
+            }
             return image;
-            
-
         }
     }
 }

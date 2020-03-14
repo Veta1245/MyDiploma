@@ -15,17 +15,32 @@
                     <Button x:Name="new_student" Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Width="141" Click="insert_NewStudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,5,0,0"></Button>
                     <Button x:Name="timetable" Content="Составить расписание" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,5,0,0" Width="140"></Button>
                     <Button x:Name="timetable_Copy" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,5,0,0" Width="226"/>
-                    <DataGrid x:Name="ListStudent" Style="{DynamicResource datagrid}"  Margin="29,55,19,33" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="85"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="Имя" Width="50"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Path=MiddleName}" Header="Отчество" Width="*"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Path=Birthday}" Header="Дата рождения" Width="*"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Path=ID_Firm}" Header="Фирма" Width="*"></DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Hidden" Margin="20,30,0,0">
+                        <DataGrid x:Name="ListStudent" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Height="346">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Фото" Width="50">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Student_photo}" Width="40" Height="40" ></Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="80"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="Имя" Width="80"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=MiddleName}" Header="Отчество" Width="80"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=Number_of_certificate}" Header="Номер удостоверения" Width="190"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=Birthday}" Header="Дата рождения" Width="125"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=Firm.Name_Firm}" Header="Место работы" Width="120"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=Post}" Header="Должность" Width="100"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=Education}" Header="Образование" Width="120"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=NimberDiploma}" Header="Номер диплома" Width="130"></DataGridTextColumn>
+                                
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                 </Grid>
-    </TabItem>
+            </TabItem>
         </TabControl>
     </Grid>
 </Page>

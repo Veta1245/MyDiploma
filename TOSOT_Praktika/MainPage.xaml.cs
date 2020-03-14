@@ -26,16 +26,16 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
         }
-
         private void insert_NewStudent(object sender, RoutedEventArgs e)
         {
             NewStudent ns = new NewStudent();
             ns.Show();
         }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ListStudent.ItemsSource = db.Student.ToList();
+            ListStudent.ScrollIntoView(ListStudent.Items[ListStudent.Items.Count -1]);
+            
         }
     }
 }

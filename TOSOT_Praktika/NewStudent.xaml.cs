@@ -151,7 +151,7 @@ namespace TOSOT_Praktika
             }
             else
             {
-                //FilePath =
+                FilePath = String.Empty;
             }
         }
 

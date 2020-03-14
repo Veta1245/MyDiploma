@@ -162,6 +162,7 @@
             <Setter Property="ColumnHeaderStyle" Value="{DynamicResource chs}" ></Setter>
             <Setter Property="RowStyle" Value="{DynamicResource rs}"></Setter>
             <Setter Property="CellStyle" Value="{DynamicResource cell}"></Setter>
+           
         </Style>
         <Style x:Key="chs" TargetType="DataGridColumnHeader">
             <Setter Property="ToolTip" Value="Сортировать" ></Setter>
@@ -194,5 +195,10 @@
             </Style.Triggers>
         </Style>
 
+        
+
+       
+
+       
     </Application.Resources>
 </Application>
