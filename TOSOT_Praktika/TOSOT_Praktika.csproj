@@ -69,6 +69,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CertificateLog.xaml.cs">
+      <DependentUpon>CertificateLog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Composition.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -134,6 +137,9 @@
     <Compile Include="NumberStudyProgram.xaml.cs">
       <DependentUpon>NumberStudyProgram.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageALLCertificateNumber.xaml.cs">
+      <DependentUpon>PageALLCertificateNumber.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageAuthorisation.xaml.cs">
       <DependentUpon>PageAuthorisation.xaml</DependentUpon>
     </Compile>
@@ -161,6 +167,10 @@
     <Compile Include="Worker.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="CertificateLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormNumberSertificate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NumberStudyProgram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageALLCertificateNumber.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

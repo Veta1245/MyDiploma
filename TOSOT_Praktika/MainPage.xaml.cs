@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +36,20 @@ namespace TOSOT_Praktika
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ListStudent.ItemsSource = db.Student.ToList();
-            ListStudent.ScrollIntoView(ListStudent.Items[ListStudent.Items.Count -1]);
-            
+            ListStudent.ScrollIntoView(ListStudent.Items[ListStudent.Items.Count - 1]);
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            ListStudent.ItemsSource = db.Student.ToList().Where(x=>x.Firm.Name_Firm.StartsWith(EntryField.Text)||x.LastName.StartsWith(EntryField.Text)).ToList();
+
+        }
+
+        private void CertificateLog_Click(object sender, RoutedEventArgs e)
+        {
+            CertificateLog cl = new CertificateLog();
+            cl.Show();
+
         }
     }
 }

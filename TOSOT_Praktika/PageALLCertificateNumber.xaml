@@ -1,0 +1,59 @@
+﻿<Page x:Class="TOSOT_Praktika.PageALLCertificateNumber"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TOSOT_Praktika"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Title="PageALLCertificateNumber" Loaded="Page_Loaded" Width="625" Height="377">
+
+    <Grid>
+        <TabControl Background="Transparent" BorderBrush="White" Margin="10,0,10,10">
+            <TabItem Header="Общий список">
+                <Grid>
+                    <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal"/>
+                    <DataGrid x:Name="ListAllCertificateNumber" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,0,30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="140"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Worker.LastName}" Header="ФИО ответственного" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="01" x:Name="ot" Loaded="ot_Loaded" ToolTip="Охрана труда">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Охрана труда"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="OT" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10" Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="02" x:Name="height" Loaded="height_Loaded" ToolTip="Высота">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Высота"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="Height" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

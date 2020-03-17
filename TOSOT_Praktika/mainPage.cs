@@ -19,6 +19,10 @@ namespace TOSOT_Praktika
     {
         public static System.Windows.Controls.Frame PageRegistration;
     }
+    public static class CertificateLogg
+    {
+        public static System.Windows.Controls.Frame CertificateLogPage;
+    }
     partial class Worker
     {
         public string FullName
