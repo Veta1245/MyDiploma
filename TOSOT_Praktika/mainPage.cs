@@ -33,4 +33,23 @@ namespace TOSOT_Praktika
             }
         }
     }
+    partial class TrainingProgram
+    {
+        public string FullNameWorker
+        {
+            get
+            {
+                TOSOT db = new TOSOT();
+                string name = string.Empty;
+                foreach (var item in db.Course)
+                {
+                    if (item.ID_Training_program==ID_Training_program)
+                    {
+                        name = item.Worker.FullName;
+                    }
+                }
+                return name;
+            }
+        }
+    }
 }

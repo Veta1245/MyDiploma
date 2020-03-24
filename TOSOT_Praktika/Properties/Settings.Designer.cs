@@ -414,5 +414,17 @@ namespace TOSOT_Praktika.Properties {
                 this["ID15"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string bootPath {
+            get {
+                return ((string)(this["bootPath"]));
+            }
+            set {
+                this["bootPath"] = value;
+            }
+        }
     }
 }

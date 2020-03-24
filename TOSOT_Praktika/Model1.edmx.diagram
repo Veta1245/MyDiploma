@@ -20,7 +20,7 @@
         <AssociationConnector Association="TOSOTModel.FK_Course_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="TOSOTModel.FK_RegistrationCertificates_Worker" ManuallyRouted="false" />
         <EntityTypeShape EntityType="TOSOTModel.Firm" Width="1.5" PointX="5.375" PointY="5.125" />
-        <EntityTypeShape EntityType="TOSOTModel.Student" Width="1.5" PointX="7.625" PointY="4" />
+        <EntityTypeShape EntityType="TOSOTModel.Student" Width="2.625" PointX="7.625" PointY="4" />
         <AssociationConnector Association="TOSOTModel.FK_Student_Firm" />
         <AssociationConnector Association="TOSOTModel.FK_Student_TrainingProgram" />
       </Diagram>

@@ -13,7 +13,7 @@
             <TabItem Header="Общий список">
                 <Grid>
                     <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal"/>
-                    <DataGrid x:Name="ListAllCertificateNumber" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,0,30,10">
+                    <DataGrid x:Name="ListAllCertificateNumber" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Extended" Margin="30,0,30,10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="140"></DataGridTextColumn>
@@ -46,6 +46,198 @@
                     </Grid.RowDefinitions>
                     <Label Content="Высота"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
                     <DataGrid x:Name="Height" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="03" x:Name="ptm" Loaded="ptm_Loaded" ToolTip="ПТМ">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Пожарно-технический минимум"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="PTM" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="04" x:Name="opp" Loaded="opp_Loaded" ToolTip="Оказание первой помощи">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Оказание первой помощи"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="OPP" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="05" x:Name="ts" Loaded="ts_Loaded" ToolTip="Техносферная безопасность">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22*"/>
+                                <RowDefinition Height="317*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Техносферная безопасность"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                            <DataGrid x:Name="TS" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                                    <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                                    <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+            </TabItem>
+            <TabItem  Header="06" x:Name="steril" Loaded="steril_Loaded" ToolTip="Стерилизаторы">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Стерилизаторы"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="Steril" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="07" x:Name="ps" Loaded="ps_Loaded" ToolTip="ПромБезопасность">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Промышленная безопасность"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="PS" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="08" x:Name="worker" Loaded="worker_Loaded" ToolTip="Рабочие">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Рабочие"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="Worker" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="09" x:Name="rs" Loaded="rs_Loaded" ToolTip="Радиационная безопасность">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Радиационная безопасность"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="RS" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="10" x:Name="ecology" Loaded="ecology_Loaded" ToolTip="Экология">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Экология"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="Ecology" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="11" x:Name="es" Loaded="es_Loaded"  ToolTip="ЭлектроБезопасность">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="ЭлектроБезопасность"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="ES" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="12" x:Name="goAndchs" Loaded="goAndchs_Loaded"  ToolTip="ГО и ЧС">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="ГО и ЧС"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="GOAndCHS" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="13" x:Name="profPa" Loaded="profPa_Loaded"  ToolTip="Профпатология">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Профпатология"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="ProfPa" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="14" x:Name="medical" Loaded="medical_Loaded"  ToolTip="Лечебное дело">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="317*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Лечебное дело"  Grid.Row="0" Style="{StaticResource lable}" Margin="0,0,0,303" Grid.RowSpan="2" FontSize="16"></Label>
+                    <DataGrid x:Name="Medical" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Margin="30,10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=ProtocolNumber}" Header="Номер протокола" Width="180*"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="170*"></DataGridTextColumn>

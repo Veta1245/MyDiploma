@@ -23,33 +23,30 @@ namespace TOSOT_Praktika
         public MessageBoxVersion()
         {
             InitializeComponent();   
-            
-        }
-
-        public Window setCreatingWindow
-        {
-            get { return creatingWindow; }
-            set { creatingWindow = value; }
-        }
-        private void No_Exit(object sender, RoutedEventArgs e)
-        {
-
-            Close();
         }
 
         private void Yes_Exit(object sender, RoutedEventArgs e)
         {
-            if (creatingWindow != null)
-                creatingWindow.Close();
-            this.Close();
+            Application.Current.Shutdown();
+        }
+
+        private void No_Exit(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
+            try
             {
-                this.DragMove();
+                DragMove();
             }
+            catch (Exception)
+            {
+
+                return;
+            }
+            
         }
     }
 }

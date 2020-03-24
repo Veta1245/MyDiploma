@@ -31,6 +31,7 @@ namespace TOSOT_Praktika
 
             InitializeComponent();
             db = new TOSOT();
+            
             listFirm.ItemsSource = db.Firm.ToList();
             listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();
             fill_Combobox();

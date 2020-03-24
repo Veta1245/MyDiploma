@@ -26,6 +26,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="300" Margin="0,4,0,401" Grid.RowSpan="2">
             <Image x:Name="logo" Margin="10,0,0,0" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\logo1.png" RenderTransformOrigin="0.726,0.45" Width="30"/>
             <TextBlock Text="OOO &quot;ТОЦОТ&quot;" VerticalAlignment="Center"  Foreground="#FF1D5906" Margin="10,0,0,0" FontSize="16" FontWeight="Bold"></TextBlock>
+            <Button  x:Name="Settings" BorderBrush="Transparent"   Margin="30,0,0,0"  Style="{StaticResource effect_button}" Click="Settings_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Grid Margin="0,0,0,0">
+                    <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\settings.png" Height="26" OpacityMask="#FFF0F0EB"/>
+                </Grid>
+            </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="82" Margin="0,4,0,401" Grid.RowSpan="2">
             <Button x:Name="collapse" Width="26" Margin="5,1,0,3" BorderThickness="0"  Style="{StaticResource effect_button}" Click="Minimised">

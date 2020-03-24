@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TOSOT_Praktika"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage" Loaded="Page_Loaded" >
+      Title="MainPage">
 
     <Grid>
         <TabControl Background="Transparent" BorderBrush="White" Margin="-16,0,-7,-9">
@@ -17,13 +17,13 @@
                         <Button x:Name="timetable" Content="Составить расписание" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140" Margin="0 0 5 0"></Button>
                         <Button x:Name="CertificateLog" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="226" Margin="0 0 50 0" Click="CertificateLog_Click"/>
                         <Border Margin="0 0 5 0" Style="{StaticResource OvalTexBox}" Width="143" Height="Auto" Background="White">
-                            <TextBox x:Name="EntryField" BorderThickness="0" Margin="2,6,2,2" ToolTip="Введите фамилию или место работы"/>
+                            <TextBox SelectionChanged="EntryField_SelectionChanged" x:Name="EntryField" BorderThickness="0" Margin="2,6,2,2" ToolTip="Введите фамилию или место работы" />
                         </Border>
                         <Button x:Name="Search" Content="Поиск" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" Click="Search_Click" Margin="0,0,0,0" />
                     </StackPanel>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
               VerticalScrollBarVisibility="Hidden" Margin="20,30,0,0">
-                        <DataGrid x:Name="ListStudent" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Single" Height="346">
+                        <DataGrid x:Name="ListStudent" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Extended" Height="346">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Фото" Width="50">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -41,8 +41,16 @@
                                 <DataGridTextColumn Binding="{Binding Path=Post}" Header="Должность" Width="100"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding Path=Education}" Header="Образование" Width="120"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding Path=NimberDiploma}" Header="Номер диплома" Width="130"></DataGridTextColumn>
-
+                                <DataGridTextColumn Binding="{Binding Path=BeginLearning}" Header="Начало обучения" Width="140"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=EndLearning}" Header="Конец обучения" Width="140"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding TrainingProgram.Name_Program}" Header="Программа обучения" Width="190"></DataGridTextColumn>
                             </DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="BtnSelect" Click="BtnSelect_Click" Header="Выбрать"></MenuItem>
+                                    <MenuItem Name="BtnUpdate" Click="BtnUpdate_Click" Header="Изменить"></MenuItem>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                         </DataGrid>
                     </ScrollViewer>
                 </Grid>

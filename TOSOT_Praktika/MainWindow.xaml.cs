@@ -35,7 +35,6 @@ namespace TOSOT_Praktika
         private void close_program(object sender, RoutedEventArgs e)
         {
             secondWindow = new MessageBoxVersion();
-            secondWindow.setCreatingWindow = this;
             secondWindow.Show();
         }
 
@@ -64,6 +63,12 @@ namespace TOSOT_Praktika
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
            HelloyWorker.Content = LabelText;
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow sw = new SettingsWindow();
+            sw.Show();
         }
     }
 }
