@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для NewLearningProgram.xaml
-    /// </summary>
     public partial class NewLearningProgram : Window
     {
         TOSOT db;
@@ -25,7 +22,6 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
         }
-
         private void closeNewLearningProgram_Click(object sender, RoutedEventArgs e)
         {
             NewStudent ns = new NewStudent();
@@ -33,7 +29,6 @@ namespace TOSOT_Praktika
             ns.Show();
             this.Close();
         }
-
         private void insert_new_learning_program_Click(object sender, RoutedEventArgs e)
         {
             if (NameLearningProgram.Text == "" || timelong.Text == "")
@@ -55,19 +50,17 @@ namespace TOSOT_Praktika
             };
             db.TrainingProgram.Add(NewTrainingProgram);
             db.SaveChanges();
-            NewStudent ns = new NewStudent();
-            ns.TabControlNewStudent.SelectedIndex = 2;
-            ns.Show();
+           // NewStudent ns = new NewStudent();
+           // ns.TabControlNewStudent.SelectedIndex = 2;
+           // ns.Show();
             this.Close();
             MessageBoxInsert mbi = new MessageBoxInsert();
             mbi.Show();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             NameLearningProgram.Text = NewStudent.PassingText2;
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

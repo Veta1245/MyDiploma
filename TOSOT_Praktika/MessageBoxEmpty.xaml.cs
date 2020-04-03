@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxEmpty.xaml
-    /// </summary>
     public partial class MessageBoxEmpty : Window
     {
         public MessageBoxEmpty()
@@ -27,12 +24,10 @@ namespace TOSOT_Praktika
         {
             Close();
         }
-
         private void closeMessageBoxEmpty_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

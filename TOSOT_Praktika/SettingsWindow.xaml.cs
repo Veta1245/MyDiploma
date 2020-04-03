@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для SettingsWindow.xaml
-    /// </summary>
     public partial class SettingsWindow : Window
     {
         public SettingsWindow()
@@ -27,7 +24,6 @@ namespace TOSOT_Praktika
             InitializeComponent();
             BootPath.Text = Properties.Settings.Default.bootPath;
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
@@ -36,11 +32,9 @@ namespace TOSOT_Praktika
             }
             catch (Exception)
             {
-
                 return;
             }
         }
-
         private void Path_Click(object sender, RoutedEventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
@@ -49,14 +43,18 @@ namespace TOSOT_Praktika
                 BootPath.Text = fbd.SelectedPath;
             }
         }
-
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (BootPath.Text == "")
+            {
+                MessageBoxEmpty mbe = new MessageBoxEmpty();
+                mbe.Show();
+                return;
+            }
             Properties.Settings.Default.bootPath = BootPath.Text;
             Properties.Settings.Default.Save();
             this.Close();

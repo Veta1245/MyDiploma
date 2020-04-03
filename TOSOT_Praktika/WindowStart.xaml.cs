@@ -14,35 +14,22 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для WindowStart.xaml
-    /// </summary>
     public partial class WindowStart : Window
     {
-        
-
         public WindowStart()
         {
             InitializeComponent();
             PageAuthorisation pa = new PageAuthorisation();
             MyFrame.NavigationService.Navigate(pa);
-            
-
-
-        }
-        
+        }     
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void close_windowStart_Click(object sender, RoutedEventArgs e)
         {
             Close();
-
-
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

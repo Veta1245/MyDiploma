@@ -19,9 +19,6 @@ using System.IO;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для FormNumberSertificate.xaml
-    /// </summary>
     public partial class FormNumberSertificate : Window
     {
         TOSOT db;
@@ -33,66 +30,38 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
             listworker.ItemsSource = db.Worker.ToList();
-
             yearLearning.Text = Properties.Settings.Default.TextBoxYearLearning;
             numberGroup.Text = Properties.Settings.Default.TextBoxNumberGroup;
             studyProgram.Text = Properties.Settings.Default.TextBoxStudyProgram;
             listworker.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxListWorker);
-
-
         }
-
         private void closeFormNemderSertificate_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.TextBoxYearLearning = yearLearning.Text;
             Properties.Settings.Default.TextBoxNumberGroup = numberGroup.Text;
             Properties.Settings.Default.TextBoxStudyProgram = studyProgram.Text;
             Properties.Settings.Default.ComboBoxListWorker = listworker.SelectedIndex;
-
             Properties.Settings.Default.Save();
-
             NewStudent ns = new NewStudent();
             ns.TabControlNewStudent.SelectedIndex = 2;
             ns.Show();
-
             this.Close();
         }
-
         private void choice_study_program_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.TextBoxYearLearning = yearLearning.Text;
             Properties.Settings.Default.TextBoxNumberGroup = numberGroup.Text;
             Properties.Settings.Default.TextBoxStudyProgram = studyProgram.Text;
             Properties.Settings.Default.ComboBoxListWorker = listworker.SelectedIndex;
-
             Properties.Settings.Default.Save();
-
             NumberStudyProgram nsp = new NumberStudyProgram();
             nsp.Show();
             this.Close();
         }
-
-        private void force_number_sertificate1_Click(object sender, RoutedEventArgs e)
-        {
-            if (RegistrNumber.Text == "" || studyProgram.Text == "" || listworker.SelectedItem == null)
-            {
-                MessageBoxEmpty mbe = new MessageBoxEmpty();
-                mbe.Show();
-                return;
-            }
-
-
-            NewStudent ns = new NewStudent();
-            ns.TabControlNewStudent.SelectedIndex = 2;
-            ns.Show();
-            this.Close();
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             studyProgram.Text = NumberStudyProgram.PassingText;
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -100,7 +69,6 @@ namespace TOSOT_Praktika
                 this.DragMove();
             }
         }
-
         public void collectNumber_Click(object sender, RoutedEventArgs e)
         {
             if (yearLearning.Text == "" || numberGroup.Text == "" || studyProgram.Text == "")
@@ -109,26 +77,24 @@ namespace TOSOT_Praktika
                 mbe.Show();
                 return;
             }
-
+            var code = Code(studyProgram.Text);
             Worker worker = (Worker)listworker.SelectedItem;
             RegistrationCertificates certificate = new RegistrationCertificates()
             {
-                Code = Code(studyProgram.Text),
+                Code = code,
                 Worker = worker,
                 DateCreate = DateTime.Now,
-                ProtocolNumber = Convert.ToInt32(numberGroup.Text)
-            };
-            
+                ProtocolNumber = numberGroup.Text
+            };     
             db.Entry(certificate).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
-            sertificate.Text = Code(studyProgram.Text);
+            sertificate.Text = code;
             PassingText1 = sertificate.Text;
             NewStudent Ns = new NewStudent();
             Ns.TabControlNewStudent.SelectedIndex = 2;
             Ns.Show();
             this.Close();
         }
-
         public string Code(string studyProgram)
         {
             string registText = string.Empty;
@@ -148,8 +114,7 @@ namespace TOSOT_Praktika
                                 id++;
                                 Properties.Settings.Default[studyProgramID] = id.ToString();
                                 string idProperty = String.Format("{0:d4}", id);
-                                registText = $"{studyProgram}{yearLearning.Text}{numberGroup.Text}{idProperty}";
-                               
+                                registText = $"{studyProgram}{yearLearning.Text}{numberGroup.Text}{idProperty}";         
                                 Properties.Settings.Default.Save();
                             }
                         }
@@ -167,7 +132,6 @@ namespace TOSOT_Praktika
             }
             catch (Exception)
             {
-
                 text = "<setting name=\"" + studyProgramID + "\" serializeAs=\"String\"><value>0</value></setting>";
                 string[] readText = System.IO.File.ReadAllLines(@"C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\App.config", Encoding.Default);
                 readText[46] = readText[46] + Environment.NewLine + text;

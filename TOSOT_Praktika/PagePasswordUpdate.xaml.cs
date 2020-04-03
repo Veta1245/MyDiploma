@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для PagePasswordUpdate.xaml
-    /// </summary>
     public partial class PagePasswordUpdate : Page
     {
         TOSOT db;
@@ -39,7 +36,6 @@ namespace TOSOT_Praktika
                 mbe.Show();
                 return;
             }
-
             if (db.Worker.Select(item => item.Login).Contains(Login.Text))
             {
                 SqlCommand comm = new SqlCommand("Update dbo.Worker Set Password='" + newPassword.Password + "'  Where Login = '" + Login.Text + "'", conn);
@@ -53,14 +49,10 @@ namespace TOSOT_Praktika
                 MessageBoxLoginNotExist mblne = new MessageBoxLoginNotExist();
                 mblne.Show();
                 return;
-            }
-            
-            
+            }  
             MessageBoxChange mbch = new MessageBoxChange();
             mbch.Show();
-
         }
-
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PageAuthorisation.xaml", UriKind.Relative));

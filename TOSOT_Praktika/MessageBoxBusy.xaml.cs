@@ -14,26 +14,20 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxBusy.xaml
-    /// </summary>
     public partial class MessageBoxBusy : Window
     {
         public MessageBoxBusy()
         {
             InitializeComponent();
         }
-
         private void busyfirm_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void closeMessageBoxBusy_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

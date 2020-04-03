@@ -20,9 +20,6 @@ using System.Windows.Shapes;
 using Word = Microsoft.Office.Interop.Word;
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
-    /// </summary>
     public partial class MainPage : Page
     {
         TOSOT db;
@@ -34,33 +31,36 @@ namespace TOSOT_Praktika
             db = new TOSOT();
             Load();
         }
-
         private void Load()
         {
+            (ListStudent.Columns[5] as DataGridTextColumn).Binding.StringFormat = "dd:MM:yyyy";
+            (ListStudent.Columns[10] as DataGridTextColumn).Binding.StringFormat = "dd:MM:yyyy";
+            (ListStudent.Columns[11] as DataGridTextColumn).Binding.StringFormat = "dd:MM:yyyy";
             ListStudent.ItemsSource = db.Student.ToList();
             ListStudent.ScrollIntoView(ListStudent.Items[ListStudent.Items.Count - 1]);
         }
-
         private void insert_NewStudent(object sender, RoutedEventArgs e)
         {
             NewStudent ns = new NewStudent();
             ns.Show();
         }
-
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             ListStudent.ItemsSource = db.Student.ToList().Where(x => x.Firm.Name_Firm.StartsWith(EntryField.Text) || x.LastName.StartsWith(EntryField.Text)).ToList();
-
         }
-
         private void CertificateLog_Click(object sender, RoutedEventArgs e)
         {
             CertificateLog cl = new CertificateLog();
             cl.Show();
-
         }
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
+            if (EntryField.Text == "")
+            {
+                MessageBoxEmpty mbe = new MessageBoxEmpty();
+                mbe.Show();
+                return;
+            }
             foreach (Student item in ListStudent.SelectedItems)
             {
                 students.Add(item);
@@ -74,10 +74,8 @@ namespace TOSOT_Praktika
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
         private void Doc()
         {
@@ -155,7 +153,6 @@ namespace TOSOT_Praktika
             {
                 doc2.Paragraphs.Add();
             }
-
             doc2.Paragraphs[2].Range.Font.Name = "Times New Roman";
             doc2.Paragraphs[2].Range.Font.Size = 14;
             doc2.Paragraphs[2].Range.Font.Color = Word.WdColor.wdColorDarkGreen;
@@ -199,7 +196,6 @@ namespace TOSOT_Praktika
                 j2+=1;
                 number2 += 1;
             }
-
             doc2.SaveAs(fullproject + $"\\{GroupNumber}\\2 ПБ {GroupNumber}.2 Приказ о выпуске.docx");
             doc2.Close();
             app2.Quit();
@@ -230,7 +226,6 @@ namespace TOSOT_Praktika
             table3.Cell(1, 4).Range.Text = "Место работы";
             table3.Cell(1, 5).Range.Text = "Год рождения";
             table3.Cell(1, 6).Range.Text = "Образование";
-
             int number3 = 1;
             for (int i = 0; i < students.Count(); i++)
             {
@@ -243,8 +238,6 @@ namespace TOSOT_Praktika
                 j3+=1;
                 number3 += 1;
             }
-
-
             doc3.SaveAs(fullproject + $"\\{GroupNumber}\\3 Журнал.docx");
             doc3.Close();
             app3.Quit();
@@ -283,8 +276,6 @@ namespace TOSOT_Praktika
                 j4+=1;
                 number4 += 1;
             }
-
-
             doc4.SaveAs(fullproject + $"\\{GroupNumber}\\4 Ведомость итога экзамена.docx");
             doc4.Close();
             app4.Quit();
@@ -326,8 +317,6 @@ namespace TOSOT_Praktika
                 j5+=1;
                 number5 += 1;
             }
-
-
             doc5.SaveAs(fullproject + $"\\{GroupNumber}\\5 Ведомость выдачи удостоверений.docx");
             doc5.Close();
             app5.Quit();
@@ -387,7 +376,6 @@ namespace TOSOT_Praktika
                 j6+=1;
                 number6 += 1;
             }
-
             doc6.SaveAs(fullproject + $"\\{GroupNumber}\\6 Протокол ПБ {GroupNumber}.docx");
             doc6.Close();
             app6.Quit();
@@ -450,8 +438,6 @@ namespace TOSOT_Praktika
                 j7+=1;
                 number7 += 1;
             }
-
-
             doc7.SaveAs(fullproject + $"\\{GroupNumber}\\7 Выписка Протокол ПБ {GroupNumber}.docx");
             doc7.Close();
             app7.Quit();
@@ -479,8 +465,6 @@ namespace TOSOT_Praktika
                 j8 += 1;
                 number8 += 1;
             }
-
-
             doc8.SaveAs(fullproject + $"\\{GroupNumber}\\Вводный.docx");
             doc8.Close();
             app8.Quit();
@@ -549,13 +533,10 @@ namespace TOSOT_Praktika
             app9.Quit();
             #endregion
         }
-
         private void EntryField_SelectionChanged(object sender, RoutedEventArgs e)
         {
             GroupNumber = EntryField.Text;
         }
-
-
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             Student student = ListStudent.SelectedItem as Student;
@@ -563,6 +544,21 @@ namespace TOSOT_Praktika
             us.ShowDialog();
             db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
             Load();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            Save();
+        }
+        private void Save()
+        {
+            ListStudent.ItemsSource = db.Student.ToList();
         }
     }
 }

@@ -15,10 +15,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    
     public partial class MainWindow : Window
     {
         MessageBoxVersion secondWindow;
@@ -28,7 +24,6 @@ namespace TOSOT_Praktika
         {
             InitializeComponent();
             db = new TOSOT();
-
             MainPage mp = new MainPage();
             myFrame.NavigationService.Navigate(mp);
         }
@@ -37,34 +32,26 @@ namespace TOSOT_Praktika
             secondWindow = new MessageBoxVersion();
             secondWindow.Show();
         }
-
         private void Minimised (object sender, RoutedEventArgs e)
         {
              WindowState = WindowState.Minimized;
         }
-
         private void Maximized(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Maximized;
-            
+            WindowState = WindowState.Maximized;       
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                
-
                 this.DragMove();
-            }
-                
+            }    
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
            HelloyWorker.Content = LabelText;
         }
-
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             SettingsWindow sw = new SettingsWindow();

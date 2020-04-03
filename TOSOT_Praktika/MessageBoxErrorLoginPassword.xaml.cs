@@ -14,21 +14,16 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxErrorLoginPassword.xaml
-    /// </summary>
     public partial class MessageBoxErrorLoginPassword : Window
     {
         public MessageBoxErrorLoginPassword()
         {
             InitializeComponent();
         }
-
         private void ErrorLoginPassword_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

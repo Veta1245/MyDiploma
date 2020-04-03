@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для CertificateLog.xaml
-    /// </summary>
     public partial class CertificateLog : Window
     {
         TOSOT db;
@@ -33,9 +30,7 @@ namespace TOSOT_Praktika
             {
                 this.DragMove();
             }
-
         }
-
         private void closeCertificateLog_Click(object sender, RoutedEventArgs e)
         {
             Close();

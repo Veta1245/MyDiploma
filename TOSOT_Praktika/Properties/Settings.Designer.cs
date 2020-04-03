@@ -426,5 +426,29 @@ namespace TOSOT_Praktika.Properties {
                 this["bootPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte Photo {
+            get {
+                return ((byte)(this["Photo"]));
+            }
+            set {
+                this["Photo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string certificate {
+            get {
+                return ((string)(this["certificate"]));
+            }
+            set {
+                this["certificate"] = value;
+            }
+        }
     }
 }

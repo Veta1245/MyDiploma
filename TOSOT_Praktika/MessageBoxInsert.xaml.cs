@@ -14,26 +14,20 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxInsert.xaml
-    /// </summary>
     public partial class MessageBoxInsert : Window
     {
         public MessageBoxInsert()
         {
             InitializeComponent();
         }
-
         private void insertfirm_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void closeMessageBoxInsert_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

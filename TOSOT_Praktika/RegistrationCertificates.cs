@@ -15,7 +15,7 @@ namespace TOSOT_Praktika
     public partial class RegistrationCertificates
     {
         public int IdCertificate { get; set; }
-        public int ProtocolNumber { get; set; }
+        public string ProtocolNumber { get; set; }
         public int IdWorker { get; set; }
         public System.DateTime DateCreate { get; set; }
         public string Code { get; set; }

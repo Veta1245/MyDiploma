@@ -21,8 +21,17 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="200,0,0,0">
-            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="21" Margin="111,3,7,5"  Background="{x:Null}" Click="close_NewStudent" >
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5,0,0,0">
+            <Label Content="Новый специалист" Style="{StaticResource lable}" Margin="0,0,0,0"></Label>
+            <Button  x:Name="Update" BorderBrush="Transparent"   Margin="140,5,-190,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Grid Margin="0,0,-2,0">
+                    <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\Update.png" OpacityMask="#FFF0F0EB"/>
+                </Grid>
+            </Button>
+            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="21" Margin="185,3,7,5"  Background="{x:Null}" Click="close_NewStudent" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
                 <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
@@ -37,7 +46,7 @@
                         <ColumnDefinition Width="145*"/>
                         <ColumnDefinition Width="181*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКН,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
+                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
                     <Label Grid.Column="1" Content="Фамилия" Style="{StaticResource lable}" Margin="0,20,89,260" FontSize="16" />
                     <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,224">
                         <TextBox x:Name="lastName" BorderThickness="0" Margin="3,3,4,4" Height="22" FontSize="14" />
@@ -51,7 +60,7 @@
                     </Border>
                     <Label Content="День рождения" Style="{StaticResource lable}" Margin="13,191,10,90" FontSize="16" />
                     <Border Style="{StaticResource OvalTexBox}" Margin="13,226,10,54" Width="Auto" Height="Auto">
-                        <DatePicker x:Name="Birthday"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14"/>
+                        <DatePicker x:Name="Birthday"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14" SelectedDateFormat="Short"/>
                     </Border>
                     <Label Grid.Column="1" Content="Имя" Style="{StaticResource lable}" Margin="0,97,116,186" FontSize="16" />
                     <Label Grid.Column="1" Content="Отчество" Style="{StaticResource lable}" Margin="0,168,89,115" FontSize="16" />

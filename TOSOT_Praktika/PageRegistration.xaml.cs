@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для PageRegistration.xaml
-    /// </summary>
     public partial class PageRegistration : Page
     {
         TOSOT db;
@@ -26,13 +23,11 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
         }
-
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
             if (Registration.IsInitialized)
             {
                 FIO.Text = LastNameWorker.Text + " " + FirstNameWorker.Text + " " + MiddleNameWorker.Text;
-
             }
             if (LastNameWorker.Text == "" || FirstNameWorker.Text == "" || MiddleNameWorker.Text == "" || Login.Text == "" || Password.Password == "")
             {
@@ -52,16 +47,13 @@ namespace TOSOT_Praktika
                 Password = Password.Password,
                 LastName = LastNameWorker.Text,
                 FirstName = FirstNameWorker.Text,
-                MiddleName = MiddleNameWorker.Text,
-                
+                MiddleName = MiddleNameWorker.Text,                
             };
             db.Worker.Add(Newworker);
             db.SaveChanges();
-            MessageBox.Show("Вы успешно зарегистрировались!");
-            
-            
+            MessageBoxSuccessRegistration mbsr = new MessageBoxSuccessRegistration();
+            mbsr.Show();  
         }
-
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PageAuthorisation.xaml", UriKind.Relative));

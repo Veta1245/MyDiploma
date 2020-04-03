@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для NumberStudyProgram.xaml
-    /// </summary>
     public partial class NumberStudyProgram : Window
     {
         TOSOT db;
@@ -25,39 +22,26 @@ namespace TOSOT_Praktika
         public NumberStudyProgram()
         {
             InitializeComponent();
-            
-
             db = new TOSOT();
         }
-
         private void closeNumderStudyProgram_Click(object sender, RoutedEventArgs e)
         {
             FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
             this.Close();
         }
-
         private void choice_study_program1_Click(object sender, RoutedEventArgs e)
         {
-            
-
             PassingText = reserve.Text;
-
-
             FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
-            this.Close();
-               
+            this.Close();            
             }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             db = new TOSOT();
             list.ItemsSource = db.LearningProgram.OrderBy(x=>x.KeyOfProgram.Length).ThenBy(x=>x.KeyOfProgram).ToList();
-            
-
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -65,7 +49,6 @@ namespace TOSOT_Praktika
                 this.DragMove();
             }
         }
-
         private void InsertNewProgram_Click(object sender, RoutedEventArgs e)
         {
             if (KeyOfProgram.Text == "" || NameProgram.Text == "")
@@ -90,7 +73,6 @@ namespace TOSOT_Praktika
             list.ItemsSource = db.LearningProgram.ToList();
             StackPanelNewProgram.Visibility = Visibility.Collapsed;
         }
-
         private void DeleteProgram_Click(object sender, RoutedEventArgs e)
         {
             int num = (list.SelectedItem as LearningProgram).ID_LearningProgram;
@@ -99,12 +81,10 @@ namespace TOSOT_Praktika
             db.SaveChanges();
             list.ItemsSource = db.LearningProgram.ToList();
         }
-
         private void InsertNewProgram_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            StackPanelNewProgram.Visibility = Visibility.Visible;
-           
+            StackPanelNewProgram.Visibility = Visibility.Visible;   
         }
     }
-    }
+}
 

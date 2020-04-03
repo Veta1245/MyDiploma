@@ -110,7 +110,7 @@
                     <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="23,181,20,99" Width="Auto" Grid.ColumnSpan="2">
                         <TextBox x:Name="trainingProgram" Style="{StaticResource TextBoxInOval}" FontSize="14" Margin="9,5,9,4" Height="Auto" Width="Auto" Text="{Binding TrainingProgram.Name_Program}"/>
                     </Border>
-                    <Button Content="Изменить" Click="Update_Click" Height="30" Width="100" Style="{StaticResource MyButtonStyle}" Grid.Column="1" Margin="44,276,20,10"></Button>
+                    <Button Content="Сохранить изменения" Click="Update_Click" Height="Auto" Width="Auto" Style="{StaticResource MyButtonStyle}" Grid.Column="1" Margin="0,266,20,10"></Button>
                     <Label Content="Программа обучения" Margin="23,153,106,124" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>

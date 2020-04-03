@@ -16,9 +16,6 @@ using System.Windows.Threading;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для ProgressBarWindow.xaml
-    /// </summary>
     public partial class ProgressBarWindow : Window
     {
         DispatcherTimer timer = new DispatcherTimer();
@@ -29,7 +26,6 @@ namespace TOSOT_Praktika
             timer.Tick += Timer_Tick;
             timer.Start();
         }
-
         private void Timer_Tick(object sender, EventArgs e)
         {
             progressBar.Value++;
@@ -48,7 +44,6 @@ namespace TOSOT_Praktika
             }
             catch (Exception)
             {
-
                 return;
             }
         }

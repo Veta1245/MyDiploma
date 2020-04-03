@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxVersion.xaml
-    /// </summary>
     public partial class MessageBoxVersion : Window
     {
         Window creatingWindow;
@@ -24,17 +21,14 @@ namespace TOSOT_Praktika
         {
             InitializeComponent();   
         }
-
         private void Yes_Exit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void No_Exit(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
@@ -43,10 +37,8 @@ namespace TOSOT_Praktika
             }
             catch (Exception)
             {
-
                 return;
-            }
-            
+            }      
         }
     }
 }

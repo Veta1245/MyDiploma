@@ -4,12 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="84f721ecb68e4d70ae82caa9427ece41" Name="Diagram1">
+      <Diagram DiagramId="b8137acc81254266809a6b8aba294d4e" Name="Diagram1">
         <EntityTypeShape EntityType="TOSOTModel.Composition" Width="1.5" PointX="1.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Course" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TOSOTModel.Firm" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Group" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.LearningProgram" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.RegistrationCertificates" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TOSOTModel.Student" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Teacher" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.TrainingProgram" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Worker" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
@@ -18,11 +20,9 @@
         <AssociationConnector Association="TOSOTModel.FK_Course_Teacher" ManuallyRouted="false" />
         <AssociationConnector Association="TOSOTModel.FK_Course_TrainingProgram" ManuallyRouted="false" />
         <AssociationConnector Association="TOSOTModel.FK_Course_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="TOSOTModel.FK_Student_Firm" ManuallyRouted="false" />
         <AssociationConnector Association="TOSOTModel.FK_RegistrationCertificates_Worker" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="TOSOTModel.Firm" Width="1.5" PointX="5.375" PointY="5.125" />
-        <EntityTypeShape EntityType="TOSOTModel.Student" Width="2.625" PointX="7.625" PointY="4" />
-        <AssociationConnector Association="TOSOTModel.FK_Student_Firm" />
-        <AssociationConnector Association="TOSOTModel.FK_Student_TrainingProgram" />
+        <AssociationConnector Association="TOSOTModel.FK_Student_TrainingProgram" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

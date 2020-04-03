@@ -205,6 +205,29 @@
             <Setter Property="SelectionBrush" Value="#FFB9B994"></Setter>
         </Style>
 
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+        </Style>
+
+        <Style   TargetType="{x:Type ContextMenu}">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Background" Value="#FFE4E2B2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                        <Border BorderThickness="1"
+                        BorderBrush="#FFB9B994">
+                            <StackPanel IsItemsHost="True"
+                                Background="{TemplateBinding Background}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
        
 
 

@@ -14,13 +14,13 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    public partial class MessageBoxExistingLogin : Window
+    public partial class MessageBoxSuccessRegistration : Window
     {
-        public MessageBoxExistingLogin()
+        public MessageBoxSuccessRegistration()
         {
             InitializeComponent();
         }
-        private void ExistingLogin_Click(object sender, RoutedEventArgs e)
+        private void SuccessRegistration_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
@@ -30,6 +30,6 @@ namespace TOSOT_Praktika
             {
                 this.DragMove();
             }
-        }
+        }  
     }
 }

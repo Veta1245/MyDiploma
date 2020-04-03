@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для NewFirm.xaml
-    /// </summary>
     public partial class NewFirm : Window
     {
         TOSOT db;
@@ -26,20 +22,17 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             NameFirm.Text = NewStudent.PassingText;
         }
-
         private void closeNewFirm_Click(object sender, RoutedEventArgs e)
         {
-            NewStudent ns = new NewStudent();
-            ns.TabControlNewStudent.SelectedIndex = 1;
-            ns.Show();
+            //NewStudent ns = new NewStudent();
+            //ns.TabControlNewStudent.SelectedIndex = 1;
+            //ns.Show();
             this.Close();
         }
-
         private void insert_new_firm_Click(object sender, RoutedEventArgs e)
         {
             if (NameFirm.Text == "")
@@ -61,17 +54,13 @@ namespace TOSOT_Praktika
             db.Firm.Add(newfirm);
             db.SaveChanges();
             this.Close();
-            NewStudent ns = new NewStudent();
-            ns.TabControlNewStudent.SelectedIndex = 1;
-            ns.Show();
-           
-            
+            //NewStudent ns = new NewStudent();
+           // ns.TabControlNewStudent.SelectedIndex = 1;
+           // ns.Show();             
             MessageBoxInsert mbi = new MessageBoxInsert();
             mbi.Show();
             
-            
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

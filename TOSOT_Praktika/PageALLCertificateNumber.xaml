@@ -17,7 +17,21 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="140"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Path=Worker.LastName}" Header="ФИО ответственного" Width="*"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="ФИО" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}{0} {1} {2}">
+                                                    <Binding Path="Worker.LastName"></Binding>
+                                                    <Binding Path="Worker.FirstName"></Binding>
+                                                    <Binding Path="Worker.MiddleName"></Binding>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

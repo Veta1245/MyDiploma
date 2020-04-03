@@ -14,21 +14,16 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для MessageBoxLoginNotExist.xaml
-    /// </summary>
     public partial class MessageBoxLoginNotExist : Window
     {
         public MessageBoxLoginNotExist()
         {
             InitializeComponent();
         }
-
         private void LoginNotExist_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

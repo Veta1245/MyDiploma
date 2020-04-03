@@ -6,33 +6,40 @@
       xmlns:local="clr-namespace:TOSOT_Praktika"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage">
+      Title="MainPage" Loaded="Page_Loaded">
 
     <Grid>
-        <TabControl Background="Transparent" BorderBrush="White" Margin="-16,0,-7,-9">
+        <TabControl Background="Transparent" BorderBrush="White" Margin="-30,-14,-12,-9">
             <TabItem >
                 <Grid>
-                    <StackPanel HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Orientation="Horizontal" Margin="16,0,10,0" Width="791">
-                        <Button x:Name="new_student" Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Width="141" Click="insert_NewStudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6 0 5 0"></Button>
-                        <Button x:Name="timetable" Content="Составить расписание" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140" Margin="0 0 5 0"></Button>
-                        <Button x:Name="CertificateLog" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="226" Margin="0 0 50 0" Click="CertificateLog_Click"/>
-                        <Border Margin="0 0 5 0" Style="{StaticResource OvalTexBox}" Width="143" Height="Auto" Background="White">
-                            <TextBox SelectionChanged="EntryField_SelectionChanged" x:Name="EntryField" BorderThickness="0" Margin="2,6,2,2" ToolTip="Введите фамилию или место работы" />
+                    <StackPanel HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Orientation="Horizontal" Margin="19,5,14,0" Width="803">
+                        <Button x:Name="new_student" Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Width="141" Click="insert_NewStudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1 0 5 0"></Button>
+                        <Button x:Name="CertificateLog" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="226" Margin="0 0 5 0" Click="CertificateLog_Click"/>
+                        <Button  x:Name="Update" BorderBrush="Transparent"   Margin="0,0,180,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
+                            <Button.Background>
+                                <ImageBrush/>
+                            </Button.Background>
+                            <Grid>
+                                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\Update.png" Height="26" OpacityMask="#FFF0F0EB"/>
+                            </Grid>
+                        </Button>
+                        <Border Margin="0,0,6,5" Style="{StaticResource OvalTexBox}" Width="143" Height="Auto" Background="White" >
+                            <TextBox SelectionChanged="EntryField_SelectionChanged" x:Name="EntryField" BorderThickness="0" Margin="2,2,2,2" ToolTip="Введите фамилию или место работы" />
                         </Border>
                         <Button x:Name="Search" Content="Поиск" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" Click="Search_Click" Margin="0,0,0,0" />
                     </StackPanel>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
-              VerticalScrollBarVisibility="Hidden" Margin="20,30,0,0">
-                        <DataGrid x:Name="ListStudent" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Extended" Height="346">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+              VerticalScrollBarVisibility="Hidden" Margin="19,22,0,10" >
+                        <DataGrid x:Name="ListStudent" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{DynamicResource datagrid}" AutoGenerateColumns="False" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"  SelectionMode="Extended" Height="389" Width="817">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="Фото" Width="50">
+                                <DataGridTemplateColumn Header="Фото" Width="50"  >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Image Source="{Binding Student_photo}" Width="40" Height="40" ></Image>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="80"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="80" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="Имя" Width="80"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding Path=MiddleName}" Header="Отчество" Width="80"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding Path=Number_of_certificate}" Header="Номер удостоверения" Width="190"></DataGridTextColumn>
@@ -47,7 +54,7 @@
                             </DataGrid.Columns>
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Name="BtnSelect" Click="BtnSelect_Click" Header="Выбрать"></MenuItem>
+                                    <MenuItem   Name="BtnSelect" Click="BtnSelect_Click" Header="Выбрать"/>
                                     <MenuItem Name="BtnUpdate" Click="BtnUpdate_Click" Header="Изменить"></MenuItem>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>

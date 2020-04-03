@@ -17,18 +17,13 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    /// <summary>
-    /// Логика взаимодействия для PageAuthorisation.xaml
-    /// </summary>
     public partial class PageAuthorisation : Page
     {
-        TOSOT db;
-       
+        TOSOT db; 
         public PageAuthorisation()
         {
             InitializeComponent();
-            db = new TOSOT();
-            
+            db = new TOSOT();        
         }
         string dbConnectionString = @"Data Source=VETA-PC;Initial Catalog=TOSOT;Integrated Security=True";
         private void Authorisation_Click(object sender, RoutedEventArgs e)
@@ -41,43 +36,30 @@ namespace TOSOT_Praktika
                 mbe.Show();
                 return;
             }
-            
-                if (db.Worker.Select(item => item.Login + "" + item.Password).Contains(Login.Text + "" + Password.Password))
-                {
+            if (db.Worker.Select(item => item.Login + "" + item.Password).Contains(Login.Text + "" + Password.Password))
+            {
                 SqlCommand comm = new SqlCommand("Select FirstName From Worker Where Login='" + Login.Text + "'", conn);
                 SqlDataAdapter adapt4 = new SqlDataAdapter(comm);
                 DataTable tbl4 = new DataTable();
                 adapt4.Fill(tbl4);
-
                 FirstNameWelcome.Text = tbl4.Rows[0]["FirstName"].ToString();
-
                 MainWindow mw = new MainWindow();
                 mw.LabelText = FirstNameWelcome.Text;
                 mw.Show();
-
                 }
                 else
                 {
                     MessageBoxErrorLoginPassword mbelp = new MessageBoxErrorLoginPassword();
                     mbelp.Show();
-
                 }
             }
-        
-
-       
-
         private void PasswordUpdate_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PagePasswordUpdate.xaml", UriKind.Relative));
         }
-
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PageRegistration.xaml", UriKind.Relative));
-
-
-
         }
     }
 }
