@@ -49,7 +49,11 @@ namespace TOSOT_Praktika
                 this.DragMove();
             }
         }
-        private void InsertNewProgram_Click(object sender, RoutedEventArgs e)
+        private void InsertNewProgram_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanelNewProgram.Visibility = Visibility.Visible;   
+        }
+        private void UpdateNewProgram_Click(object sender, RoutedEventArgs e)
         {
             if (KeyOfProgram.Text == "" || NameProgram.Text == "")
             {
@@ -57,33 +61,18 @@ namespace TOSOT_Praktika
                 mbe.Show();
                 return;
             }
-            if (db.LearningProgram.Select(item => item.KeyOfProgram ).Contains(KeyOfProgram.Text))
+            if (db.LearningProgram.Select(item => item.KeyOfProgram).Contains(KeyOfProgram.Text))
             {
                 MessageBoxBusy mbb = new MessageBoxBusy();
                 mbb.Show();
                 return;
             }
-            LearningProgram NewLearningProgram = new LearningProgram()
-            {
-                KeyOfProgram = KeyOfProgram.Text,
-                Name = NameProgram.Text
-            };
-            db.LearningProgram.Add(NewLearningProgram);
-            db.SaveChanges();
-            list.ItemsSource = db.LearningProgram.ToList();
-            StackPanelNewProgram.Visibility = Visibility.Collapsed;
-        }
-        private void DeleteProgram_Click(object sender, RoutedEventArgs e)
-        {
             int num = (list.SelectedItem as LearningProgram).ID_LearningProgram;
-            var dRow = db.LearningProgram.Where(w => w.ID_LearningProgram == num).FirstOrDefault();
-            db.LearningProgram.Remove(dRow);
+            var uRow = db.LearningProgram.Where(w => w.ID_LearningProgram == num).FirstOrDefault();
+            uRow.Name = NameProgram.Text;
+            uRow.KeyOfProgram = Convert.ToString(KeyOfProgram.Text);
             db.SaveChanges();
             list.ItemsSource = db.LearningProgram.ToList();
-        }
-        private void InsertNewProgram_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            StackPanelNewProgram.Visibility = Visibility.Visible;   
         }
     }
 }

@@ -7,11 +7,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Management;
+using Microsoft.Win32;
+using System.IO;
 
 namespace TOSOT_Praktika
 {
@@ -22,17 +24,21 @@ namespace TOSOT_Praktika
         public UpdateStudent(Student student)
         {
             InitializeComponent();
-            db = new TOSOT();       
-            DataContext = db.Student.Find(student.ID_Student);      
+            db = new TOSOT();
+            
+            DataContext = db.Student.Find(student.ID_Student);
+            
         }     
         public void Update_Click(object sender, RoutedEventArgs e)
         {
+           
             if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || firmName.Text == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || trainingProgram.Text == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();
                 return;
             }
+            db.Entry(DataContext as Student).Property(x => x.Student_photo).CurrentValue = ConvertImageToByteClass.ImageToByte(FilePath);
             db.SaveChanges();
             MessageBoxChange mbch = new MessageBoxChange();
             mbch.Show();
@@ -48,6 +54,22 @@ namespace TOSOT_Praktika
             {
                 this.DragMove();
             }
-        }     
+        }
+        public void foto_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files (*.BMP, *.JPG, *.GIF, *.TIF, *.PNG, *.ICO, *.EMF, *.WMF)|*.bmp;*.jpg;*.gif; *.tif; *.png; *.ico; *.emf; *.wmf";
+            if (openDialog.ShowDialog() == true)
+            {
+                FilePath = openDialog.FileName;
+                foto.Source = new BitmapImage(new Uri(openDialog.FileName));
+
+                return;
+            }
+            else
+            {
+                FilePath = String.Empty;
+            }
+        }
     }
 }

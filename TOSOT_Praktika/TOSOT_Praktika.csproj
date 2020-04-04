@@ -341,12 +341,6 @@
     <Resource Include="Resources\3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\img_352635.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\foto.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\nophoto.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -354,7 +348,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\logo1.png" />
-    <Resource Include="Resources\kn.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\settings.png" />

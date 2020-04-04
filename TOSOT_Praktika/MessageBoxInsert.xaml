@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="MessageBoxInsert" Height="150" Width="200" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+        Title="MessageBoxInsert" Height="150" Width="200" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="33*"/>
@@ -15,8 +15,8 @@
         <Grid Grid.Row="0" Background="#FFDADAAB" ></Grid>
         <Grid Grid.Row="2" Background="#FFDADAAB" ></Grid>
         <Grid Grid.Row="1">
-            <Label Content="Добавлено в список!" Style="{StaticResource lable}" Margin="21,23,21,48" FontSize="16"></Label>
-            <Button  x:Name="insertfirm" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="101,61,29,15"  Width="Auto" Height="Auto" Click="insertfirm_Click"></Button>
+            <Label Content="Добавлено в список!" Style="{StaticResource lable}" Margin="25,30,17,41" FontSize="16"></Label>
+            <Button  x:Name="insertfirm" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="120,74,10,10"  Width="Auto" Height="Auto" Click="insertfirm_Click"></Button>
         </Grid>
         
     </Grid>

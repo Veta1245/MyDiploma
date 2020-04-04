@@ -15,7 +15,7 @@
                     <StackPanel HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Orientation="Horizontal" Margin="19,5,14,0" Width="803">
                         <Button x:Name="new_student" Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Width="141" Click="insert_NewStudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1 0 5 0"></Button>
                         <Button x:Name="CertificateLog" Content="Журнал регистрации удостоверений" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="226" Margin="0 0 5 0" Click="CertificateLog_Click"/>
-                        <Button  x:Name="Update" BorderBrush="Transparent"   Margin="0,0,180,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
+                        <Button  x:Name="Update" BorderBrush="Transparent"   Margin="177,0,5,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
                             <Button.Background>
                                 <ImageBrush/>
                             </Button.Background>
@@ -60,6 +60,8 @@
                             </DataGrid.ContextMenu>
                         </DataGrid>
                     </ScrollViewer>
+                    <Label Content="Кол-во записей:" Style="{StaticResource lable}" Margin="26,422,685,0" FontWeight="Bold" FontSize="16" />
+                    <Label x:Name="coll" Style="{StaticResource lable}" Margin="145,420,550,3" FontWeight="Bold" FontSize="16" Foreground="Black" />
                 </Grid>
             </TabItem>
         </TabControl>

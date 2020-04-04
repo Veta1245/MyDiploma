@@ -56,8 +56,8 @@
                     </Border>
                 </StackPanel>
            
-            <Button  x:Name="Registration" Content="Зарегистрироваться" Style="{StaticResource MyButtonStyle}" Margin="259,138,36,67" Width="Auto" Height="Auto" Click="Registration_Click"></Button>
-            <Button x:Name="Back" Content="Назад" Style="{StaticResource MyButtonStyle}" Margin="294,173,69,31" Width="Auto" Height="Auto" Click="Back_Click"/>
+            <Button  x:Name="Registration" Content="Зарегистрироваться" Style="{StaticResource MyButtonStyle}" Margin="259,138,36,71" Width="Auto" Height="Auto" Click="Registration_Click"></Button>
+            <Button x:Name="Back" Content="Назад" Style="{StaticResource MyButtonStyle}" Margin="294,173,69,37" Width="Auto" Height="Auto" Click="Back_Click"/>
         </Grid>
     </Grid>
 </Page>

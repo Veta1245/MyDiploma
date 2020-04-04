@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="ProgressBarWindow" Height="120" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
+        Title="ProgressBarWindow" Height="120" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-8,-31">
         <Grid.RowDefinitions>
             <RowDefinition Height="21*"/>
@@ -17,8 +17,8 @@
 
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 8 0">
-            <TextBlock HorizontalAlignment="Center">Загрузка документов</TextBlock>
-            <ProgressBar x:Name="progressBar" Maximum="30" Width="289" Height="25"/>
+            <Label HorizontalAlignment="Center" Style="{StaticResource lable}" FontSize="16">Загрузка документов</Label>
+            <ProgressBar x:Name="progressBar" Maximum="30" Width="301" Height="25"/>
         </StackPanel>
         <StackPanel  Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28" Width="298" Margin="-4,0,6,18"/>
     </Grid>

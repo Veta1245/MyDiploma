@@ -16,7 +16,7 @@ namespace TOSOT_Praktika
 {
     public partial class MessageBoxVersion : Window
     {
-        Window creatingWindow;
+       // Window creatingWindow;
         public MessageBoxVersion()
         {
             InitializeComponent();   

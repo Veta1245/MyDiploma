@@ -542,15 +542,12 @@ namespace TOSOT_Praktika
             Student student = ListStudent.SelectedItem as Student;
             UpdateStudent us = new UpdateStudent(student);
             us.ShowDialog();
-            db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-            Load();
         }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            int num = ListStudent.Items.Count;
+            coll.Content = num.ToString();
         }
-
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
@@ -559,6 +556,8 @@ namespace TOSOT_Praktika
         private void Save()
         {
             ListStudent.ItemsSource = db.Student.ToList();
+            int num = ListStudent.Items.Count;
+            coll.Content = num.ToString();
         }
     }
 }

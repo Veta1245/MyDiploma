@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="WindowStart" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" >
+        Title="WindowStart" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" ResizeMode="NoResize" >
 
     <Grid>
         <Grid Grid.Row="0" >

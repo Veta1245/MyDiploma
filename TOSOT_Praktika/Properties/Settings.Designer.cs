@@ -430,9 +430,9 @@ namespace TOSOT_Praktika.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public byte Photo {
+        public string Photo {
             get {
-                return ((byte)(this["Photo"]));
+                return ((string)(this["Photo"]));
             }
             set {
                 this["Photo"] = value;
@@ -441,13 +441,13 @@ namespace TOSOT_Praktika.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string certificate {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string UpdatePhoto {
             get {
-                return ((string)(this["certificate"]));
+                return ((string)(this["UpdatePhoto"]));
             }
             set {
-                this["certificate"] = value;
+                this["UpdatePhoto"] = value;
             }
         }
     }

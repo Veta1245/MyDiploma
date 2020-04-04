@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="NumberStudyProgram" Height="347" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MouseDown="Window_MouseDown">
+        Title="NumberStudyProgram" Height="347" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid Margin="0,0,0,2">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -58,8 +58,7 @@
                     <TextBox x:Name="reserve" Height="23" TextWrapping="Wrap"  Margin="0,0,127,0" Text="{Binding SelectedItem.KeyOfProgram,  ElementName=list}" Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
-            <Button x:Name="InsertNewProgram" Content="Добавить" ToolTip="ПКН развернуть для заполнения, ЛКМ добавить" Margin="347,146,24,123" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="InsertNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown"/>
-            <Button x:Name="DeleteProgram" Content="Удалить" ToolTip="Удалить программу из списка" Margin="347,183,24,86" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="DeleteProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold"/>
+            <Button x:Name="UpdateNewProgram" Content="Редактировать" ToolTip="ПКН развернуть для редактирования, ЛКМ редактировать" Margin="347,211,24,58" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="UpdateNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown"/>
         </Grid>
     </Grid>
 

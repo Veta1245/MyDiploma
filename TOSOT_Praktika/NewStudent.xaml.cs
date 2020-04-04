@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Management;
 using Microsoft.Win32;
-
+using System.IO;
 
 namespace TOSOT_Praktika
 {
@@ -42,7 +42,7 @@ namespace TOSOT_Praktika
             endLearning.SelectedDate = Properties.Settings.Default.DatePickerEndLearning;
             numberSertificate.Text = Properties.Settings.Default.TextBoxNumberSertificate;
             listLearningProgramm.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxListLearningProgram);
-            
+            foto.Source = new BitmapImage(new Uri(Properties.Settings.Default.Photo));
         }
         private void fill_Combobox1()
         {
@@ -53,7 +53,7 @@ namespace TOSOT_Praktika
         }
         public List<Firm> firm { get; set; }
         public List<TrainingProgram> NameProgram { get; set; }
-        public string FilePath { get; private set; }
+        public string FilePath { get; set; }
         private void fill_Combobox()
         {
             TOSOT db = new TOSOT();
@@ -61,9 +61,8 @@ namespace TOSOT_Praktika
             firm = item;
             DataContext = firm;
         }
-        private void close_NewStudent(object sender, RoutedEventArgs e)
+        public void close_NewStudent(object sender, RoutedEventArgs e)
         {
-            
             this.Close();
         }
         private void select_newfirm(object sender, RoutedEventArgs e)
@@ -78,7 +77,7 @@ namespace TOSOT_Praktika
             fns.Show();
             this.Close();
         }
-        private void foto_MouseUp(object sender, MouseButtonEventArgs e)
+        public void foto_MouseUp(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "Image files (*.BMP, *.JPG, *.GIF, *.TIF, *.PNG, *.ICO, *.EMF, *.WMF)|*.bmp;*.jpg;*.gif; *.tif; *.png; *.ico; *.emf; *.wmf";
@@ -86,6 +85,7 @@ namespace TOSOT_Praktika
             {
                 FilePath = openDialog.FileName;
                 foto.Source = new BitmapImage(new Uri(openDialog.FileName));
+                
                 return;
             }
             else
@@ -140,10 +140,8 @@ namespace TOSOT_Praktika
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
             numberSertificate.Text = FormNumberSertificate.PassingText1;
         }
-
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.TextBoxlastname = lastName.Text;
@@ -161,13 +159,17 @@ namespace TOSOT_Praktika
             Properties.Settings.Default.Save();
             db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
             Save();
-
         }
         private void Save()
         {
             listFirm.ItemsSource = db.Firm.ToList();
-            listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();
-            
+            listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();  
+        }
+
+        private void Fix_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Photo = FilePath;
+            Properties.Settings.Default.Save();
         }
     }
 }

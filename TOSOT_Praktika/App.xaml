@@ -6,7 +6,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-     
+
 
 
         <Style x:Key="effect_button" TargetType="{x:Type Button}">
@@ -91,7 +91,7 @@
         <Style TargetType="TextBox">
             <Setter Property="SelectionBrush" Value="#FFB9B994"></Setter>
         </Style>
-        
+
         <Style x:Key="TextBoxInOval" TargetType="TextBox">
             <Setter Property="SelectionBrush" Value="#FFB9B994"></Setter>
             <Setter Property="Margin" Value="3,3,4,4"></Setter>
@@ -110,7 +110,7 @@
 
         <Style x:Key="OvalTexBox" TargetType="{x:Type Border}">
             <Setter Property="BorderBrush" Value="#FFB9B994"></Setter>
-             <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="CornerRadius" Value="3,8,3,8"></Setter>
             <Setter Property="Width" Value="157"></Setter>
             <Setter Property="Height" Value="31"></Setter>
@@ -156,7 +156,7 @@
                             <ContentPresenter HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
                         </Grid>
-                        
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -168,7 +168,7 @@
             <Setter Property="ColumnHeaderStyle" Value="{DynamicResource chs}" ></Setter>
             <Setter Property="RowStyle" Value="{DynamicResource rs}"></Setter>
             <Setter Property="CellStyle" Value="{DynamicResource cell}"></Setter>
-           
+
         </Style>
         <Style x:Key="chs" TargetType="DataGridColumnHeader">
             <Setter Property="ToolTip" Value="Сортировать" ></Setter>
@@ -181,7 +181,7 @@
         <Style x:Key="rs" TargetType="DataGridRow">
             <Setter Property="Background" Value="#FFF7FBDD"></Setter>
             <Setter Property="Foreground" Value="#FF1D5906"></Setter>
-       
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FFE4E2B2"></Setter>
@@ -196,7 +196,7 @@
                     <Setter Property="Foreground" Value="#FF1D5906"></Setter>
                     <Setter Property="BorderBrush" Value="Transparent"></Setter>
                     <Setter Property="FontWeight" Value="Bold"></Setter>
-                    
+
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -214,7 +214,7 @@
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Background" Value="#FFE4E2B2"/>
             <Setter Property="Foreground" Value="Black"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContextMenu}">
@@ -228,8 +228,18 @@
             </Setter>
         </Style>
 
-       
-
+        <Style TargetType="ProgressBar">
+            <Setter Property="Background" Value="#FFE4E2B2"></Setter>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF56D132" Offset="0.904"/>
+                        <GradientStop Color="#FFE4E2B2" Offset="0.226"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Application.Resources>
 </Application>

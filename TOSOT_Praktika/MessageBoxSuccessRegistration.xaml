@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="MessageBoxSuccessRegistration" Height="150" Width="229.333" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+        Title="MessageBoxSuccessRegistration" Height="150" Width="229.333" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="33*"/>
@@ -15,8 +15,8 @@
         <Grid Grid.Row="0" Background="#FFDADAAB" ></Grid>
         <Grid Grid.Row="2" Background="#FFDADAAB" ></Grid>
         <Grid Grid.Row="1">
-            <Label Content="Регистрация прошла успешно!" Style="{StaticResource lable}" Margin="5,21,-10,50" FontSize="16"></Label>
-            <Button  x:Name="SuccessRegistration" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="127,66,22,10"  Width="Auto" Height="Auto" Click="SuccessRegistration_Click"></Button>
+            <Label Content="Регистрация прошла успешно!" Style="{StaticResource lable}" Margin="10,30,-15,41" FontSize="16"></Label>
+            <Button  x:Name="SuccessRegistration" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="139,74,10,10"  Width="Auto" Height="Auto" Click="SuccessRegistration_Click"></Button>
         </Grid>
 
     </Grid>

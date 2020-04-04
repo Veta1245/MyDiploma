@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="120" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
+        Title="SettingsWindow" Height="120" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-8,-31">
         <Grid.RowDefinitions>
             <RowDefinition Height="21*"/>
@@ -15,10 +15,10 @@
         <Grid Grid.Row="0" Background="#FFDADAAB" Margin="0,0,8,0"></Grid>
         <Grid Grid.Row="2" Background="#FFDADAAB" Margin="0,0,6,31"></Grid>
         <Grid Grid.Row="1"  Margin="0,0,8,0">
-            <Button x:Name="Path" Content="..." Width="Auto" Margin="256,23,10,38" Click="Path_Click"  Style="{StaticResource MyButtonStyle}"  />
+            <Button x:Name="Path" Content="..." Width="Auto" Margin="256,26,10,39" Click="Path_Click"  Style="{StaticResource MyButtonStyle}" Height="Auto"  />
         </Grid>
         <Label Content="Каталог выгрузки документов" Style="{StaticResource lable}" Margin="10,0,48,51" FontSize="16" Grid.Row="1"/>
-        <Border Grid.Row="1" Margin="10,23,48,38" Style="{StaticResource OvalTexBox}" Width="Auto" Height="Auto" Background="White">
+        <Border Grid.Row="1" Margin="10,23,56,38" Style="{StaticResource OvalTexBox}" Width="Auto" Height="Auto" Background="White">
             <TextBox x:Name="BootPath" BorderThickness="0" Margin="2,2,2,2" IsReadOnly="True"/>
         </Border>
         <StackPanel  Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28" Width="298" Margin="-4,0,6,5">
