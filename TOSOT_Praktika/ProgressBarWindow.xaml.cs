@@ -32,7 +32,8 @@ namespace TOSOT_Praktika
             if (progressBar.Value == 30)
             {
                 timer.Stop();
-                MessageBox.Show("Документы сформированы.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxDocumentation mbd = new MessageBoxDocumentation();
+                mbd.Show();
                 Close();
             }
         }

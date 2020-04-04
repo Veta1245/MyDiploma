@@ -14,15 +14,11 @@ using System.Windows.Shapes;
 
 namespace TOSOT_Praktika
 {
-    public partial class MessageBoxInsert : Window
+    public partial class MessageBoxDocumentation : Window
     {
-        public MessageBoxInsert()
+        public MessageBoxDocumentation()
         {
             InitializeComponent();
-        }
-        private void insertfirm_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -30,6 +26,10 @@ namespace TOSOT_Praktika
             {
                 this.DragMove();
             }
+        }
+        private void Document_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

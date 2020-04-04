@@ -49,7 +49,7 @@
                     <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
                     <Label Grid.Column="1" Content="Фамилия" Style="{StaticResource lable}" Margin="0,29,89,260" FontSize="16" />
                     <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,237">
-                        <TextBox x:Name="lastName" BorderThickness="0" Margin="3,5,4,9" FontSize="14" />
+                        <TextBox x:Name="lastName" BorderThickness="0" Margin="3,2,4,2" FontSize="14" />
                     </Border>
 
                     <Border Margin="148,127,25,166" Style="{StaticResource OvalTexBox}" Width="Auto" Height="Auto" Grid.ColumnSpan="2" >
@@ -120,9 +120,9 @@
                     </Border>
                     <Label Content="Конец обучения" Margin="14,10,20,267" Style="{StaticResource lable}" FontSize="16" Grid.Column="1"/>
                     <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="22,111,0,181" Width="Auto" Height="Auto">
-                        <TextBox x:Name="numberSertificate" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14"/>
+                        <TextBox x:Name="numberSertificate" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14" IsReadOnly="True"/>
                     </Border>
-                    <Label Content="Номер удостоверения" Margin="22,84,148,193" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
+                    <Label Content="Номер удостоверения" Margin="22,84,148,209" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                     <Button x:Name="force_number_sertificate"  Content="Сформировать номер" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="5,114,20,183" Width="Auto" Height="Auto" Click="force_number_sertificate_Click"/>
                     <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="23,181,20,112" Width="Auto" Grid.ColumnSpan="2">
                         <ComboBox x:Name="listLearningProgramm"  ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="Name_Program" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
@@ -132,7 +132,7 @@
                         <Button.ToolTip>Если нет в списке</Button.ToolTip>
                     </Button>
                     <Button x:Name="insert_newStudent"  Content="Добавить специалиста" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="0,287,10,10" Width="Auto" Height="Auto" Click="insert_newStudent_Click"></Button>
-                    <Label Content="Программа обучения" Margin="23,153,106,124" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
+                    <Label Content="Программа обучения" Margin="23,153,106,142" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="NewFirm" Height="182.131" Width="234.57" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded" MouseDown="Window_MouseDown" ResizeMode="NoResize">
+        Title="NewFirm" Height="182.131" Width="234.57" WindowStartupLocation="CenterOwner" WindowStyle="None" Loaded="Window_Loaded" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
@@ -34,10 +34,10 @@
             <StackPanel Orientation="Vertical" >
                 <Grid Grid.Row="1">
                     <Label Content="Название фирмы" Style="{StaticResource ResourceKey=lable}" Margin="45,26,56,81" FontSize="16"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="45,52,40,235" Width="Auto" Height="36" Background="White">
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="45,52,40,231" Width="Auto" Height="Auto" Background="White">
                         <TextBox x:Name="NameFirm" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="4,3,3,3" Width="Auto"/>
                     </Border>
-                    <Button x:Name="insert_new_firm" Content="Добавить" Margin="78,93,70,204" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_firm_Click">
+                    <Button x:Name="insert_new_firm" Content="Добавить" Margin="78,93,70,192" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_firm_Click">
                         <Button.ToolTip>Если нет в списке</Button.ToolTip>
                     </Button>
                 </Grid>

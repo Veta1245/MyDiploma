@@ -69,7 +69,8 @@ namespace TOSOT_Praktika
         {
             PassingText = listFirm.Text;
             NewFirm nf = new NewFirm();
-            nf.Show();
+            nf.Owner = this;
+            nf.ShowDialog();
         }
         private void force_number_sertificate_Click(object sender, RoutedEventArgs e)
         {

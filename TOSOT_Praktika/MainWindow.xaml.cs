@@ -25,7 +25,7 @@ namespace TOSOT_Praktika
             InitializeComponent();
             db = new TOSOT();
             MainPage mp = new MainPage();
-            myFrame.NavigationService.Navigate(mp);
+            myFrame.NavigationService.Navigate(mp);  
         }
         private void close_program(object sender, RoutedEventArgs e)
         {

@@ -101,6 +101,9 @@
     <Compile Include="MessageBoxChange.xaml.cs">
       <DependentUpon>MessageBoxChange.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxDocumentation.xaml.cs">
+      <DependentUpon>MessageBoxDocumentation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxEmpty.xaml.cs">
       <DependentUpon>MessageBoxEmpty.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MessageBoxChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageBoxDocumentation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
