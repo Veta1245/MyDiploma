@@ -69,12 +69,11 @@ namespace TOSOT_Praktika
         {
             PassingText = listFirm.Text;
             NewFirm nf = new NewFirm();
-            nf.Owner = this;
-            nf.ShowDialog();
+            nf.Show();
         }
         private void force_number_sertificate_Click(object sender, RoutedEventArgs e)
         {
-            FormNumberSertificate fns = new FormNumberSertificate();      
+            FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
             this.Close();
         }
@@ -85,8 +84,7 @@ namespace TOSOT_Praktika
             if (openDialog.ShowDialog() == true)
             {
                 FilePath = openDialog.FileName;
-                foto.Source = new BitmapImage(new Uri(openDialog.FileName));
-                
+                foto.Source = new BitmapImage(new Uri(openDialog.FileName)); 
                 return;
             }
             else
@@ -137,7 +135,6 @@ namespace TOSOT_Praktika
             db.SaveChanges();
             MessageBoxInsert mbi = new MessageBoxInsert();
             mbi.Show();
-            
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -166,7 +163,6 @@ namespace TOSOT_Praktika
             listFirm.ItemsSource = db.Firm.ToList();
             listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();  
         }
-
         private void Fix_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Photo = FilePath;

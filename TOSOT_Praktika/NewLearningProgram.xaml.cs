@@ -24,9 +24,6 @@ namespace TOSOT_Praktika
         }
         private void closeNewLearningProgram_Click(object sender, RoutedEventArgs e)
         {
-            NewStudent ns = new NewStudent();
-            ns.TabControlNewStudent.SelectedIndex = 2;
-            ns.Show();
             this.Close();
         }
         private void insert_new_learning_program_Click(object sender, RoutedEventArgs e)
@@ -50,9 +47,6 @@ namespace TOSOT_Praktika
             };
             db.TrainingProgram.Add(NewTrainingProgram);
             db.SaveChanges();
-           // NewStudent ns = new NewStudent();
-           // ns.TabControlNewStudent.SelectedIndex = 2;
-           // ns.Show();
             this.Close();
             MessageBoxInsert mbi = new MessageBoxInsert();
             mbi.Show();

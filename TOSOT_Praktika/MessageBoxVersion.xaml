@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
-        Title="MessageBoxVersion" Height="120" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="NoResize">
+        Title="MessageBoxVersion" Height="120" Width="300" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,-8,-31">
         <Grid.RowDefinitions>
             <RowDefinition Height="21*"/>
