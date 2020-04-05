@@ -29,7 +29,7 @@ namespace TOSOT_Praktika
         }     
         public void Update_Click(object sender, RoutedEventArgs e)
         { 
-            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || firmName.Text == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || trainingProgram.Text == null)
+            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || firmName.Text == "" || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || trainingProgram.Text == "")
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

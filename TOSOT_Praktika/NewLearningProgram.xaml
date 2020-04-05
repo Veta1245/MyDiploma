@@ -12,7 +12,7 @@
             <RowDefinition Height="207*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFF7F7CE"/>
+        <Grid Grid.Row="0" Background="#FFF7F7CE" Margin="0,3,0,0"/>
         <Grid Grid.Row="1" >
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -21,8 +21,8 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="85,0,0,0">
-            <Button Style="{StaticResource effect_button}" x:Name="closeNewLearningProgram" Width="21" Margin="111,3,7,5"  Background="{x:Null}"  Click="closeNewLearningProgram_Click">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="85,3,0,184" Grid.RowSpan="2">
+            <Button Style="{StaticResource effect_button}" x:Name="closeNewLearningProgram" Width="19" Margin="120,2,7,8"  Background="{x:Null}"  Click="closeNewLearningProgram_Click">
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
                 <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>

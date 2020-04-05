@@ -60,8 +60,8 @@
                             </DataGrid.ContextMenu>
                         </DataGrid>
                     </ScrollViewer>
-                    <Label Content="Кол-во записей:" Style="{StaticResource lable}" Margin="26,422,685,0" FontWeight="Bold" FontSize="16" />
-                    <Label x:Name="coll" Style="{StaticResource lable}" Margin="145,420,550,3" FontWeight="Bold" FontSize="16" Foreground="Black" />
+                    <Label Content="Кол-во записей:" Style="{StaticResource lable}" Margin="15,422,700,0" FontWeight="Bold" FontSize="16" />
+                    <Label x:Name="coll" Style="{StaticResource lable}" Margin="130,422,554,0" FontWeight="Bold" FontSize="16" Foreground="Black" />
                 </Grid>
             </TabItem>
         </TabControl>

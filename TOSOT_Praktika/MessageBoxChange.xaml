@@ -8,13 +8,14 @@
         Title="MessageBoxChange" Height="150" Width="229.333" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="119*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFDADAAB" ></Grid>
-        <Grid Grid.Row="2" Background="#FFDADAAB" ></Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="#FFDADAAB" />
+        <Grid Grid.Row="3" Background="#FFDADAAB" ></Grid>
+        <Grid Grid.Row="2">
             <Label Content="Изменение прошло успешно!" Style="{StaticResource lable}" Margin="10,25,0,46" FontSize="16"></Label>
             <Button  x:Name="ChangePassword" Content="ОК" Style="{StaticResource MyButtonStyle}" Margin="139,74,10,10"  Width="Auto" Height="Auto" Click="ChangePassword_Click"></Button>
         </Grid>

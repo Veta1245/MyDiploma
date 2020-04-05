@@ -12,7 +12,7 @@
             <RowDefinition Height="86*"/>
             <RowDefinition Height="36*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFDADAAB" Margin="0,0,8,0"></Grid>
+        <Grid Grid.Row="0" Background="#FFDADAAB" Margin="0,5,8,0"></Grid>
         <Grid Grid.Row="2" Background="#FFDADAAB" Margin="0,0,6,31"></Grid>
         <Grid Grid.Row="1"  Margin="0,0,8,0">
             <Button x:Name="Path" Content="..." Width="Auto" Margin="256,26,10,39" Click="Path_Click"  Style="{StaticResource MyButtonStyle}" Height="Auto"  />
