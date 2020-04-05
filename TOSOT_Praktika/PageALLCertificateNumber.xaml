@@ -17,7 +17,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Code}" Header="Номера удостоверений" Width="195"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Path=DateCreate}" Header="Дата заполнения" Width="140"></DataGridTextColumn>
-                            <DataGridTemplateColumn Header="ФИО сотрудника,занесшего данные " Width="*">
+                            <DataGridTemplateColumn Header="ФИО сотрудника" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:app="clr-namespace:TOSOT_Praktika"
              xmlns:local="clr-namespace:TOSOT_Praktika"
-             StartupUri="MainWindow.xaml">
+             StartupUri="WindowStart.xaml">
     <Application.Resources>
 
 

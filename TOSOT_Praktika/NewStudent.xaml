@@ -8,12 +8,18 @@
         Title="NewStudent" Height="400" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="27*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="30*"/>
             <RowDefinition Height="353*"/>
             <RowDefinition Height="12*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFF7F7CE"/>
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="1" Background="#FFF7F7CE" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="11*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Row="2" >
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFC0C385" Offset="0.8"/>
@@ -21,9 +27,9 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5,0,0,0">
-            <Label Content="Новый специалист" Style="{StaticResource lable}" Margin="0,0,0,0"></Label>
-            <Button  x:Name="Update" BorderBrush="Transparent"   Margin="160,5,-200,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5,0,0,0" Grid.RowSpan="2">
+            <Label Content="Новый специалист" Style="{StaticResource lable}" Margin="0,5,0,0" FontSize="16"></Label>
+            <Button  x:Name="Update" BorderBrush="Transparent"   Margin="135,7,-200,5"  Style="{StaticResource effect_button}" Click="Update_Click" Width="23" ToolTip="Обновить">
                 <Button.Background>
                     <ImageBrush/>
                 </Button.Background>
@@ -31,7 +37,7 @@
                     <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\Update.png" OpacityMask="#FFF0F0EB"/>
                 </Grid>
             </Button>
-            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="21" Margin="200,3,7,5"  Background="{x:Null}" Click="close_NewStudent" >
+            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="21" Margin="185,7,7,5"  Background="{x:Null}" Click="close_NewStudent" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
                 <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
@@ -39,7 +45,7 @@
 
             </Button>
         </StackPanel>
-        <TabControl x:Name="TabControlNewStudent" Grid.Row="1" Margin="5,0,5,7" Foreground="Black" RenderTransformOrigin="0.491,0.103" BorderBrush="#FF834F4F" x:FieldModifier="public">
+        <TabControl x:Name="TabControlNewStudent" Grid.Row="2" Margin="5,0,5,7" Foreground="Black" RenderTransformOrigin="0.491,0.103" BorderBrush="#FF834F4F" x:FieldModifier="public">
             <TabItem Header=" О нем ">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -48,19 +54,19 @@
                     </Grid.ColumnDefinitions>
                     <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
                     <Label Grid.Column="1" Content="Фамилия" Style="{StaticResource lable}" Margin="0,29,89,260" FontSize="16" />
-                    <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,237">
+                    <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,230">
                         <TextBox x:Name="lastName" BorderThickness="0" Margin="3,2,4,2" FontSize="14" />
                     </Border>
 
-                    <Border Margin="148,127,25,166" Style="{StaticResource OvalTexBox}" Width="Auto" Height="Auto" Grid.ColumnSpan="2" >
-                        <TextBox x:Name="firstName" Grid.Column="1" Style="{StaticResource TextBoxInOval}" FontSize="14" />
+                    <Border Margin="148,127,25,159" Style="{StaticResource OvalTexBox}" Width="Auto" Height="Auto" Grid.ColumnSpan="2" >
+                        <TextBox x:Name="firstName" Grid.Column="1" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="5,3,6,2" />
                     </Border>
-                    <Border Style="{StaticResource OvalTexBox}" Width="Auto" Margin="0,201,25,92" Height="Auto" Grid.Column="1">
-                        <TextBox x:Name="middleName" Style="{StaticResource TextBoxInOval}" FontSize="14" />
+                    <Border Style="{StaticResource OvalTexBox}" Width="Auto" Margin="0,201,25,84" Height="Auto" Grid.Column="1">
+                        <TextBox x:Name="middleName" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="5,3,5,2" />
                     </Border>
-                    <Button x:Name="Fix" Grid.Column="0" Style="{StaticResource MyButtonStyle}" Content="Закрепить" Margin="13,190,10,107" Width="Auto" Click="Fix_Click" Height="Auto"></Button>
+                    <Button x:Name="Fix" Grid.Column="0" Style="{StaticResource MyButtonStyle}" Content="Закрепить" Margin="13,190,10,101" Width="Auto" Click="Fix_Click" Height="Auto"></Button>
                     <Label Content="День рождения" Style="{StaticResource lable}" Margin="13,223,10,58" FontSize="16" />
-                    <Border Style="{StaticResource OvalTexBox}" Margin="13,251,10,42" Width="Auto" Height="Auto">
+                    <Border Style="{StaticResource OvalTexBox}" Margin="13,251,10,35" Width="Auto" Height="Auto">
                         <DatePicker x:Name="Birthday"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14" SelectedDateFormat="Short"/>
                     </Border>
                     <Label Grid.Column="1" Content="Имя" Style="{StaticResource lable}" Margin="0,102,116,190" FontSize="16" />
@@ -74,22 +80,22 @@
                         <ColumnDefinition Width="151*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="Название фирмы" Style="{StaticResource lable}" Margin="18,21,0,242" FontSize="16"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="18,45,0,248" Width="Auto">
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="18,45,0,242" Width="Auto">
                         <ComboBox x:Name="listFirm" ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="Name_Firm" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
 
                         </ComboBox>
                     </Border>
-                    <Button x:Name="insert_new_firm" Content="Добавить фирму" Grid.Column="1" Margin="10,47,33,250" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="select_newfirm">
+                    <Button x:Name="insert_new_firm" Content="Добавить фирму" Grid.Column="1" Margin="10,47,33,244" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="select_newfirm">
                         <Button.ToolTip>Если нет в списке</Button.ToolTip>
                     </Button>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="18,118,0,174" Width="Auto" Height="Auto">
-                        <TextBox x:Name="position" Style="{StaticResource TextBoxInOval}" FontSize="14" Margin="3,5,4,4" Height="Auto"/>
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="18,118,0,168" Width="Auto" Height="Auto">
+                        <TextBox x:Name="position" Style="{StaticResource TextBoxInOval}" FontSize="14" Margin="5,3,6,1" Height="Auto"/>
                     </Border>
-                    <Label Grid.Column="0" Content="Должность" Style="{StaticResource lable}" Margin="18,93,0,200" FontSize="16"/>
+                    <Label Grid.Column="0" Content="Должность" Style="{StaticResource lable}" Margin="18,93,0,196" FontSize="16"/>
 
-                    <Label Grid.Column="0" Content="Образование" Style="{StaticResource lable}" Margin="18,163,0,131" FontSize="16"/>
+                    <Label Grid.Column="0" Content="Образование" Style="{StaticResource lable}" Margin="18,163,0,128" FontSize="16"/>
 
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="18,188,0,105" Width="Auto">
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="18,188,0,98" Width="Auto">
                         <ComboBox x:Name="listeducation" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
                             <Label Content="Среднее общее(полное)" Height="30"></Label>
                             <Label Content="Начальное профессиональное" Width="182"></Label>
@@ -99,8 +105,8 @@
                             <Label Content="Магистратура"></Label>
                         </ComboBox>
                     </Border>
-                    <Label Grid.Column="0" Content="Номер диплома" Style="{StaticResource lable}" Margin="18,234,0,60" FontSize="16"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="18,260,41,33" Width="Auto" Height="Auto">
+                    <Label Grid.Column="0" Content="Номер диплома" Style="{StaticResource lable}" Margin="18,234,0,56" FontSize="16"/>
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="18,260,41,26" Width="Auto" Height="Auto">
                         <TextBox x:Name="numberdiploma" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14"/>
                     </Border>
                 </Grid>
@@ -112,27 +118,27 @@
                         <ColumnDefinition Width="82*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="Начало обучения" Margin="22,10,10,267" Style="{StaticResource lable}" FontSize="16"></Label>
-                    <Border Style="{StaticResource OvalTexBox}" Margin="23,36,0,257" Width="Auto" Height="Auto">
+                    <Border Style="{StaticResource OvalTexBox}" Margin="23,36,0,250" Width="Auto" Height="Auto">
                         <DatePicker x:Name="beginLearning"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14"/>
                     </Border>
-                    <Border Style="{StaticResource OvalTexBox}" Margin="14,36,11,257" Width="Auto" Height="Auto" Grid.Column="1">
+                    <Border Style="{StaticResource OvalTexBox}" Margin="14,36,11,250" Width="Auto" Height="Auto" Grid.Column="1">
                         <DatePicker x:Name="endLearning"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14"/>
                     </Border>
                     <Label Content="Конец обучения" Margin="14,10,20,267" Style="{StaticResource lable}" FontSize="16" Grid.Column="1"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="22,111,0,181" Width="Auto" Height="Auto">
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="22,111,0,175" Width="Auto" Height="Auto">
                         <TextBox x:Name="numberSertificate" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14" IsReadOnly="True"/>
                     </Border>
-                    <Label Content="Номер удостоверения" Margin="22,84,148,209" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
-                    <Button x:Name="force_number_sertificate"  Content="Сформировать номер" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="5,114,20,183" Width="Auto" Height="Auto" Click="force_number_sertificate_Click"/>
-                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="23,181,20,112" Width="Auto" Grid.ColumnSpan="2">
+                    <Label Content="Номер удостоверения" Margin="22,84,148,205" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
+                    <Button x:Name="force_number_sertificate"  Content="Сформировать номер" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="5,114,20,177" Width="Auto" Height="Auto" Click="force_number_sertificate_Click"/>
+                    <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="23,181,20,105" Width="Auto" Grid.ColumnSpan="2">
                         <ComboBox x:Name="listLearningProgramm"  ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="Name_Program" Grid.Column="0"   BorderThickness="0" IsEditable="True"  Margin="2,2,2,2" FontSize="14"  >
                         </ComboBox>
                     </Border>
-                    <Button x:Name="insert_new_learning_program" Content="Добавить программу" Margin="22,216,1,81" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_learning_program_Click">
+                    <Button x:Name="insert_new_learning_program" Content="Добавить программу" Margin="22,216,1,74" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="insert_new_learning_program_Click">
                         <Button.ToolTip>Если нет в списке</Button.ToolTip>
                     </Button>
-                    <Button x:Name="insert_newStudent"  Content="Добавить специалиста" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="0,287,10,10" Width="Auto" Height="Auto" Click="insert_newStudent_Click"></Button>
-                    <Label Content="Программа обучения" Margin="23,153,106,142" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
+                    <Button x:Name="insert_newStudent"  Content="Добавить специалиста" Style="{StaticResource MyButtonStyle}" Margin="156,280,20,10" Width="Auto" Height="Auto" Click="insert_newStudent_Click" Grid.ColumnSpan="2"/>
+                    <Label Content="Программа обучения" Margin="23,153,106,135" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

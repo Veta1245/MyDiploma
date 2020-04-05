@@ -24,14 +24,11 @@ namespace TOSOT_Praktika
         public UpdateStudent(Student student)
         {
             InitializeComponent();
-            db = new TOSOT();
-            
+            db = new TOSOT();  
             DataContext = db.Student.Find(student.ID_Student);
-            
         }     
         public void Update_Click(object sender, RoutedEventArgs e)
-        {
-           
+        { 
             if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || firmName.Text == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || trainingProgram.Text == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
@@ -63,7 +60,6 @@ namespace TOSOT_Praktika
             {
                 FilePath = openDialog.FileName;
                 foto.Source = new BitmapImage(new Uri(openDialog.FileName));
-
                 return;
             }
             else

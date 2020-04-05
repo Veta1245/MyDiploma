@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TOSOT_Praktika"
         mc:Ignorable="d"
-        Title="NewFirm" Height="182.131" Width="234.57" WindowStartupLocation="CenterOwner" WindowStyle="None" Loaded="Window_Loaded" MouseDown="Window_MouseDown" ResizeMode="NoResize">
+        Title="NewFirm" Height="182.131" Width="234.57" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded" MouseDown="Window_MouseDown" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>

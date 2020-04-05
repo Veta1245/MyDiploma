@@ -35,7 +35,7 @@
                                 <DataGridTemplateColumn Header="Фото" Width="50"  >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image Source="{Binding Student_photo}" Width="40" Height="40" ></Image>
+                                            <Image Source="{Binding Student_photo}" Width="60" Height="50" ></Image>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

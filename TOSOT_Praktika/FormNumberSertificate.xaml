@@ -22,9 +22,9 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,0,0,0">
-            <Label Content="Формирование номера удостоверения" Style="{StaticResource lable}"></Label>
-            <Button Style="{StaticResource effect_button}" x:Name="closeFormNemderSertificate" Width="21" Margin="220,3,7,5"  Background="{x:Null}" Click="closeFormNemderSertificate_Click" >
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,0">
+            <Label Content="Формирование номера удостоверения" Style="{StaticResource lable}" FontSize="16" Width="255"></Label>
+            <Button Style="{StaticResource effect_button}" x:Name="closeFormNemderSertificate" Width="21" Margin="215,3,7,5"  Background="{x:Null}" Click="closeFormNemderSertificate_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
                 <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
@@ -34,20 +34,20 @@
         </StackPanel>
         <TabControl Grid.Row="1" Margin="-22,1,-15,10" Background="Transparent" BorderBrush="Transparent" >
             <Grid Background="Transparent" Margin="37,0,-18,0" >
-                <Label Content="Год обучения *Последние 2 цифры" Margin="10,0,244,293" Style="{StaticResource lable}" FontSize="16"></Label>
+                <Label Content="Год обучения *Последние 2 цифры" Margin="10,0,244,302" Style="{StaticResource lable}" FontSize="16"></Label>
                 <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="10,25,416,281" Width="Auto" Height="Auto" Background="White">
                     <TextBox x:Name="yearLearning" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,6" Width="Auto" Height="22" FontSize="14"/>
                 </Border>
                 <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="10,88,370,219" Width="Auto" Height="Auto" Background="White">
                     <TextBox x:Name="numberGroup" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,2" Width="Auto" Height="22" FontSize="14"/>
                 </Border>
-                <Label Content="Номер протокола" Margin="10,61,302,233" Style="{StaticResource lable}" FontSize="16"/>
+                <Label Content="Номер протокола" Margin="10,61,302,249" Style="{StaticResource lable}" FontSize="16"/>
                 
                     <Border Style="{StaticResource OvalTexBox}" Margin="237,149,179,157" Width="Auto" Height="Auto" Background="White" >
                         <TextBox x:Name="studyProgram" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,2" Width="Auto" Height="22" FontSize="14" IsEnabled="False" />
                     </Border>
                 
-                <Label Content="Номер программы обучения" Margin="237,120,-25,174" Style="{StaticResource lable}" FontSize="16"/>
+                <Label Content="Номер программы обучения" Margin="237,120,-25,185" Style="{StaticResource lable}" FontSize="16"/>
                 <Button x:Name="choice_study_program" Content="Выбрать" Margin="339,152,60,159" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="choice_study_program_Click" FontSize="14">
                     <Button.ToolTip>Существующие номера</Button.ToolTip>
                 </Button>
@@ -55,7 +55,7 @@
                 <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Height="Auto" Margin="10,149,336,157" Width="Auto" Background="White">
                     <ComboBox x:Name="listworker" SelectedValuePath="ID" Grid.Column="0" IsEditable="True"  BorderThickness="0" Margin="2,2,2,2" FontSize="14" DisplayMemberPath="FullName" ></ComboBox>
                 </Border>
-                <Label Content="Внес данные" Margin="10,120,302,173" Style="{StaticResource lable}" FontSize="16"/>
+                <Label Content="Внес данные" Margin="10,120,302,181" Style="{StaticResource lable}" FontSize="16"/>
                 <Button x:Name="collectNumber" Content="Сформировать номер" Margin="264,301,60,10" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto"  FontSize="14" Click="collectNumber_Click" >
                     <Button.ToolTip>Номер удостоверения</Button.ToolTip>
                 </Button>

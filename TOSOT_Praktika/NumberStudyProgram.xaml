@@ -33,7 +33,7 @@
         </Grid>
         <Label Grid.Row="0" Margin="10,0,200,0" Content="Список номеров программ обучения" Style="{StaticResource lable}" FontSize="16"></Label>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="344,0,0,0">
-            <Button Style="{StaticResource effect_button}" x:Name="closeNumderStudyProgram" Width="21" Margin="111,3,7,5"  Background="{x:Null}" Click="closeNumderStudyProgram_Click" >
+            <Button Style="{StaticResource effect_button}" x:Name="closeNumderStudyProgram" Width="21" Margin="125,3,7,5"  Background="{x:Null}" Click="closeNumderStudyProgram_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
                 <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
             </Button>
@@ -48,7 +48,7 @@
             </Button>
 
             <Grid  Grid.Row="1" x:Name="LearningList" Margin="0,0,0,10" >
-                <DataGrid Style="{DynamicResource datagrid}"  x:Name="list" Height="271" AutoGenerateColumns="False" Margin="10,10,160,0" VerticalAlignment="Top" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"   >
+                <DataGrid Style="{DynamicResource datagrid}"  x:Name="list" Height="300" AutoGenerateColumns="False" Margin="10,-9,175,0" VerticalAlignment="Top" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column"   >
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=KeyOfProgram}" Header="Код" Width="40"/>
                         <DataGridTextColumn Binding="{Binding Path=Name}" Header="Название программы обучения" Width="*"/>
