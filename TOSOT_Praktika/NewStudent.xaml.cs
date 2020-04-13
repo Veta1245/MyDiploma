@@ -19,17 +19,23 @@ namespace TOSOT_Praktika
 {
     public partial class NewStudent : Window
     {
-        TOSOT db;
+        TOSOT db = new TOSOT();
         public static string PassingText;
         public static string PassingText2;
         public NewStudent()
         {
             InitializeComponent();
-            db = new TOSOT();           
-            listFirm.ItemsSource = db.Firm.ToList();
+            LoadComboBox();
+            LoadProperties();
+        }
+        void LoadComboBox()
+        {
             listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();
-            fill_Combobox();
-            fill_Combobox1();
+            listFirm.ItemsSource = db.Firm.ToList();
+        }
+
+        void LoadProperties()
+        {
             lastName.Text = Properties.Settings.Default.TextBoxlastname;
             firstName.Text = Properties.Settings.Default.TextBoxfirstname;
             middleName.Text = Properties.Settings.Default.TextBoxmiddlename;
@@ -42,25 +48,22 @@ namespace TOSOT_Praktika
             endLearning.SelectedDate = Properties.Settings.Default.DatePickerEndLearning;
             numberSertificate.Text = Properties.Settings.Default.TextBoxNumberSertificate;
             listLearningProgramm.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxListLearningProgram);
-            foto.Source = new BitmapImage(new Uri(Properties.Settings.Default.Photo));
+            try
+            {
+                foto.Source = new BitmapImage(new Uri(Properties.Settings.Default.Photo));
+
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+                    
         }
-        private void fill_Combobox1()
-        {
-            TOSOT db = new TOSOT();
-            var item = db.TrainingProgram.ToList();
-            NameProgram = item;
-            DataContext = NameProgram;
-        }
-        public List<Firm> firm { get; set; }
-        public List<TrainingProgram> NameProgram { get; set; }
-        public string FilePath { get; set; }
-        private void fill_Combobox()
-        {
-            TOSOT db = new TOSOT();
-            var item = db.Firm.ToList();
-            firm = item;
-            DataContext = firm;
-        }
+
+        public string FilePath = string.Empty;
+
         public void close_NewStudent(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -69,13 +72,15 @@ namespace TOSOT_Praktika
         {
             PassingText = listFirm.Text;
             NewFirm nf = new NewFirm();
-            nf.Show();
+            nf.ShowDialog();
+            LoadComboBox();
         }
         private void force_number_sertificate_Click(object sender, RoutedEventArgs e)
         {
+            SaveProperties();
             FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
-            this.Close();
+            Close();
         }
         public void foto_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -84,19 +89,16 @@ namespace TOSOT_Praktika
             if (openDialog.ShowDialog() == true)
             {
                 FilePath = openDialog.FileName;
-                foto.Source = new BitmapImage(new Uri(openDialog.FileName)); 
+                foto.Source = new BitmapImage(new Uri(openDialog.FileName));
                 return;
-            }
-            else
-            {
-                FilePath = String.Empty;
             }
         }
         private void insert_new_learning_program_Click(object sender, RoutedEventArgs e)
         {
-            PassingText2 = listLearningProgramm.Text;          
+            PassingText2 = listLearningProgramm.Text;
             NewLearningProgram nlp = new NewLearningProgram();
-            nlp.Show();
+            nlp.ShowDialog();
+            LoadComboBox();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -107,6 +109,7 @@ namespace TOSOT_Praktika
         }
         private void insert_newStudent_Click(object sender, RoutedEventArgs e)
         {
+            SaveProperties();
             Firm firm = (Firm)listFirm.SelectedItem;
             TrainingProgram trainingProg = (TrainingProgram)listLearningProgramm.SelectedItem;
             if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || listLearningProgramm.SelectedItem == null)
@@ -129,8 +132,8 @@ namespace TOSOT_Praktika
                 EndLearning = Convert.ToDateTime(endLearning.SelectedDate),
                 Number_of_certificate = numberSertificate.Text,
                 TrainingProgram = trainingProg,
-                Student_photo= ConvertImageToByteClass.ImageToByte(FilePath)
-        };
+                Student_photo = ConvertImageToByteClass.ImageToByte(Properties.Settings.Default.Photo)
+            };
             db.Student.Add(NewStudent);
             db.SaveChanges();
             MessageBoxInsert mbi = new MessageBoxInsert();
@@ -140,7 +143,7 @@ namespace TOSOT_Praktika
         {
             numberSertificate.Text = FormNumberSertificate.PassingText1;
         }
-        private void Update_Click(object sender, RoutedEventArgs e)
+        private void SaveProperties()
         {
             Properties.Settings.Default.TextBoxlastname = lastName.Text;
             Properties.Settings.Default.TextBoxfirstname = firstName.Text;
@@ -154,14 +157,8 @@ namespace TOSOT_Praktika
             Properties.Settings.Default.DatePickerEndLearning = endLearning.SelectedDate.Value;
             Properties.Settings.Default.TextBoxNumberSertificate = numberSertificate.Text;
             Properties.Settings.Default.ComboBoxListLearningProgram = listLearningProgramm.SelectedIndex;
+            Properties.Settings.Default.Photo = (foto.Source as BitmapImage).UriSource.OriginalString;
             Properties.Settings.Default.Save();
-            db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-            Save();
-        }
-        private void Save()
-        {
-            listFirm.ItemsSource = db.Firm.ToList();
-            listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();  
         }
         private void Fix_Click(object sender, RoutedEventArgs e)
         {
@@ -170,3 +167,4 @@ namespace TOSOT_Praktika
         }
     }
 }
+

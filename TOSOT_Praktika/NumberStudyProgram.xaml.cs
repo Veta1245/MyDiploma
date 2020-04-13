@@ -28,19 +28,19 @@ namespace TOSOT_Praktika
         {
             FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
-            this.Close();
+            Close();
         }
         private void choice_study_program1_Click(object sender, RoutedEventArgs e)
         {
             PassingText = reserve.Text;
             FormNumberSertificate fns = new FormNumberSertificate();
             fns.Show();
-            this.Close();            
-            }
+            Close();
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             db = new TOSOT();
-            list.ItemsSource = db.LearningProgram.OrderBy(x=>x.KeyOfProgram.Length).ThenBy(x=>x.KeyOfProgram).ToList();
+            list.ItemsSource = db.LearningProgram.OrderBy(x => x.KeyOfProgram.Length).ThenBy(x => x.KeyOfProgram).ToList();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -51,7 +51,7 @@ namespace TOSOT_Praktika
         }
         private void InsertNewProgram_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            StackPanelNewProgram.Visibility = Visibility.Visible;   
+            StackPanelNewProgram.Visibility = Visibility.Visible;
         }
         private void UpdateNewProgram_Click(object sender, RoutedEventArgs e)
         {

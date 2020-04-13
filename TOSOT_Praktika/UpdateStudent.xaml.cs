@@ -21,15 +21,18 @@ namespace TOSOT_Praktika
     {
         TOSOT db;
         public string FilePath { get; private set; }
+
         public UpdateStudent(Student student)
         {
             InitializeComponent();
-            db = new TOSOT();  
+            db = new TOSOT();
+            listFirm.ItemsSource = db.Firm.ToList();
+            learningProgram.ItemsSource = db.TrainingProgram.ToList();
             DataContext = db.Student.Find(student.ID_Student);
-        }     
+        }
         public void Update_Click(object sender, RoutedEventArgs e)
-        { 
-            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || firmName.Text == "" || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || trainingProgram.Text == "")
+        {
+            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem==null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || learningProgram.SelectedItem == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

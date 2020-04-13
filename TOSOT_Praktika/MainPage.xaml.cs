@@ -541,6 +541,8 @@ namespace TOSOT_Praktika
             Student student = ListStudent.SelectedItem as Student;
             UpdateStudent us = new UpdateStudent(student);
             us.ShowDialog();
+            db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            ListStudent.ItemsSource = db.Student.ToList();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

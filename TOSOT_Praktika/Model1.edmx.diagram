@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f12db57e375c4814bb37a0f84a063635" Name="Diagram1">
+      <Diagram DiagramId="f12db57e375c4814bb37a0f84a063635" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="TOSOTModel.Composition" Width="1.5" PointX="1.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Course" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TOSOTModel.Firm" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />

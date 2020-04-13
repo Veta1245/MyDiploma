@@ -21,20 +21,25 @@ namespace TOSOT_Praktika
 {
     public partial class FormNumberSertificate : Window
     {
-        TOSOT db;
+        TOSOT db = new TOSOT();
         string text = string.Empty;
         public static string PassingText;
         public static string PassingText1;
         public FormNumberSertificate()
         {
             InitializeComponent();
-            db = new TOSOT();
+            Load();
+        }
+
+        void Load()
+        {
             listworker.ItemsSource = db.Worker.ToList();
             yearLearning.Text = Properties.Settings.Default.TextBoxYearLearning;
             numberGroup.Text = Properties.Settings.Default.TextBoxNumberGroup;
             studyProgram.Text = Properties.Settings.Default.TextBoxStudyProgram;
             listworker.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxListWorker);
         }
+
         private void closeFormNemderSertificate_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.TextBoxYearLearning = yearLearning.Text;
@@ -85,7 +90,7 @@ namespace TOSOT_Praktika
                 Worker = worker,
                 DateCreate = DateTime.Now,
                 ProtocolNumber = numberGroup.Text
-            };     
+            };
             db.Entry(certificate).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
             sertificate.Text = code;
@@ -114,7 +119,7 @@ namespace TOSOT_Praktika
                                 id++;
                                 Properties.Settings.Default[studyProgramID] = id.ToString();
                                 string idProperty = String.Format("{0:d4}", id);
-                                registText = $"{studyProgram}{yearLearning.Text}{numberGroup.Text}{idProperty}";         
+                                registText = $"{studyProgram}{yearLearning.Text}{numberGroup.Text}{idProperty}";
                                 Properties.Settings.Default.Save();
                             }
                         }
