@@ -72,6 +72,7 @@
     <Compile Include="CertificateLog.xaml.cs">
       <DependentUpon>CertificateLog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Composition.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
