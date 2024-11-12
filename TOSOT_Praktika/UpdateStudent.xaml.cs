@@ -19,20 +19,20 @@ namespace TOSOT_Praktika
 {
     public partial class UpdateStudent : Window
     {
-        TOSOT db;
+        Model1Container1 db;
         public string FilePath { get; private set; }
 
         public UpdateStudent(Student student)
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
             listFirm.ItemsSource = db.Firm.ToList();
             learningProgram.ItemsSource = db.TrainingProgram.ToList();
             DataContext = db.Student.Find(student.ID_Student);
         }
         public void Update_Click(object sender, RoutedEventArgs e)
         {
-            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem==null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || learningProgram.SelectedItem == null)
+            if (string.IsNullOrWhiteSpace(lastName.Text) || string.IsNullOrWhiteSpace(firstName.Text) || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem==null || string.IsNullOrWhiteSpace(position.Text) || listeducation.SelectedItem == null || string.IsNullOrWhiteSpace(numberdiploma.Text) || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || string.IsNullOrWhiteSpace(numberSertificate.Text) || learningProgram.SelectedItem == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

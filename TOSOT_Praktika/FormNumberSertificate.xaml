@@ -27,13 +27,13 @@
             <Button Style="{StaticResource effect_button}" x:Name="closeFormNemderSertificate" Width="19" Margin="215,4,7,7"  Background="{x:Null}" Click="closeFormNemderSertificate_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="27" Width="28" Margin="-4,0,0,0"/>
 
 
             </Button>
         </StackPanel>
         <TabControl Grid.Row="1" Margin="-22,1,-15,10" Background="Transparent" BorderBrush="Transparent" >
-            <Grid Background="Transparent" Margin="37,0,-18,0" >
+            <Grid Background="Transparent" Margin="30,0,-11,0" >
                 <Label Content="Год обучения *Последние 2 цифры" Margin="10,0,244,302" Style="{StaticResource lable}" FontSize="16"></Label>
                 <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="10,25,416,281" Width="Auto" Height="Auto" Background="White">
                     <TextBox x:Name="yearLearning" Style="{StaticResource TextBoxInOval}" Margin="4,3,5,6" Width="Auto" Height="22" FontSize="14"/>

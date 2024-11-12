@@ -18,12 +18,12 @@ namespace TOSOT_Praktika
     public partial class MainWindow : Window
     {
         MessageBoxVersion secondWindow;
-        TOSOT db;
+        Model1Container1 db;
         public String LabelText { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
             MainPage mp = new MainPage();
             myFrame.NavigationService.Navigate(mp);  
         }

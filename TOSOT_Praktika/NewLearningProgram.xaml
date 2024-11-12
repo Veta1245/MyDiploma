@@ -22,10 +22,10 @@
             </Grid.Background>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="85,3,0,184" Grid.RowSpan="2">
-            <Button Style="{StaticResource effect_button}" x:Name="closeNewLearningProgram" Width="19" Margin="120,2,7,8"  Background="{x:Null}"  Click="closeNewLearningProgram_Click">
+            <Button Style="{StaticResource effect_button}" x:Name="closeNewLearningProgram" Width="19" Margin="120,4,7,8"  Background="{x:Null}"  Click="closeNewLearningProgram_Click">
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
 
 
             </Button>

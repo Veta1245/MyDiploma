@@ -19,18 +19,18 @@ namespace TOSOT_Praktika
 {
     public partial class PageAuthorisation : Page
     {
-        TOSOT db; 
+        Model1Container1 db; 
         public PageAuthorisation()
         {
             InitializeComponent();
-            db = new TOSOT();        
+            db = new Model1Container1();        
         }
-        string dbConnectionString = @"Data Source=VETA-PC;Initial Catalog=TOSOT;Integrated Security=True";
+        string dbConnectionString = @"Data Source=DESKTOP-RBCN9Q8;Initial Catalog=TOSOT;Integrated Security=True";
         private void Authorisation_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection conn = new SqlConnection(dbConnectionString);
             conn.Open();
-            if (Login.Text == "" || Password.Password == "")
+            if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

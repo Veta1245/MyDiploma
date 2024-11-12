@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,11 @@ namespace TOSOT_Praktika
 {
     public partial class PageRegistration : Page
     {
-        TOSOT db;
+       Model1Container1 db;
         public PageRegistration()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
@@ -29,7 +30,7 @@ namespace TOSOT_Praktika
             {
                 FIO.Text = LastNameWorker.Text + " " + FirstNameWorker.Text + " " + MiddleNameWorker.Text;
             }
-            if (LastNameWorker.Text == "" || FirstNameWorker.Text == "" || MiddleNameWorker.Text == "" || Login.Text == "" || Password.Password == "")
+            if (string.IsNullOrWhiteSpace(LastNameWorker.Text) || string.IsNullOrWhiteSpace(FirstNameWorker.Text) || string.IsNullOrWhiteSpace(MiddleNameWorker.Text) || string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(Password.Password))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

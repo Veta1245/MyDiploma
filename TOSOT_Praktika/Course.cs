@@ -20,8 +20,6 @@ namespace TOSOT_Praktika
         public string ID_Worler { get; set; }
         public int ID_Teacher { get; set; }
     
-        public virtual Group Group { get; set; }
-        public virtual Teacher Teacher { get; set; }
         public virtual TrainingProgram TrainingProgram { get; set; }
         public virtual Worker Worker { get; set; }
     }

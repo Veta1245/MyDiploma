@@ -20,7 +20,7 @@
                                 <ImageBrush/>
                             </Button.Background>
                             <Grid>
-                                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\Update.png" Height="26" OpacityMask="#FFF0F0EB"/>
+                                <Image Source="Resources/Update.PNG" Height="26" OpacityMask="#FFF0F0EB"/>
                             </Grid>
                         </Button>
                         <Border Margin="0,0,6,5" Style="{StaticResource OvalTexBox}" Width="143" Height="Auto" Background="White" >

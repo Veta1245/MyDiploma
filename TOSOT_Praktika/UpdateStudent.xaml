@@ -32,7 +32,7 @@
             <Button Style="{StaticResource effect_button}" x:Name="closeUpdateStudent" Width="21" Margin="110,12,7,10"  Background="{x:Null}" Click="closeUpdateStudent_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
 
 
             </Button>
@@ -56,7 +56,7 @@
                         <TextBox x:Name="middleName" Style="{StaticResource TextBoxInOval}" FontSize="14" Text="{Binding MiddleName}"/>
                     </Border>
                     <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="{Binding Student_photo}" MouseUp="foto_MouseUp" />
-                    <Label Content="День рождения" Style="{StaticResource lable}" Margin="13,192,10,89" FontSize="16" />
+                    <Label Content="Дата рождения" Style="{StaticResource lable}" Margin="13,192,10,89" FontSize="16" />
                     <Border Style="{StaticResource OvalTexBox}" Margin="13,221,10,65" Width="Auto" Height="Auto">
                         <DatePicker x:Name="Birthday"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14" SelectedDate="{Binding Birthday}"/>
                     </Border>

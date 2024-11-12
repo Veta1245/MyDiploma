@@ -16,11 +16,11 @@ namespace TOSOT_Praktika
 {
     public partial class CertificateLog : Window
     {
-        TOSOT db;
+        Model1Container1 db;
         public CertificateLog()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
             PageALLCertificateNumber pasn = new PageALLCertificateNumber();
             CertificateLogPage.NavigationService.Navigate(pasn);
         }

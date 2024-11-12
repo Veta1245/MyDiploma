@@ -16,11 +16,11 @@ namespace TOSOT_Praktika
 {
     public partial class NewLearningProgram : Window
     {
-        TOSOT db;
+        Model1Container1 db;
         public NewLearningProgram()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         private void closeNewLearningProgram_Click(object sender, RoutedEventArgs e)
         {
@@ -28,7 +28,7 @@ namespace TOSOT_Praktika
         }
         private void insert_new_learning_program_Click(object sender, RoutedEventArgs e)
         {
-            if (NameLearningProgram.Text == "" || timelong.Text == "")
+            if (string.IsNullOrWhiteSpace(NameLearningProgram.Text) || string.IsNullOrWhiteSpace(timelong.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

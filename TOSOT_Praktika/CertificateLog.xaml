@@ -25,10 +25,10 @@
             <Label Content="Журнал регистрации удостоверений" Width="269" Style="{StaticResource lable}" FontSize="16"></Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="52" Margin="0,4,0,400" Grid.RowSpan="2">
-            <Button Style="{StaticResource effect_button}" x:Name="closeCertificateLog" Width="26" Margin="10,0,0,3" BorderThickness="0" Background="{x:Null}" Click="closeCertificateLog_Click" >
+            <Button Style="{StaticResource effect_button}" x:Name="closeCertificateLog" Width="27" Margin="10,6,0,3" BorderThickness="0" Background="{x:Null}" Click="closeCertificateLog_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
                 <Grid Margin="0,0,0,0">
-                    <Image Margin="-4,-5,-4,-6" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" Height="38" Width="35"/>
+                    <Image Margin="-4,-5,-4,-6" Source="Resources/3.png" Height="38" Width="35"/>
                 </Grid>
             </Button>
         </StackPanel>

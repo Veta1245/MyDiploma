@@ -19,18 +19,18 @@ namespace TOSOT_Praktika
 {
     public partial class PagePasswordUpdate : Page
     {
-        TOSOT db;
+        Model1Container1 db;
         public PagePasswordUpdate()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         string dbConnectionString = @"Data Source=VETA-PC;Initial Catalog=TOSOT;Integrated Security=True";
         private void SaveNewPassword_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection conn = new SqlConnection(dbConnectionString);
             conn.Open();
-            if (Login.Text == "" || newPassword.Password == "")
+            if (string.IsNullOrWhiteSpace(Login.Text) || string.IsNullOrWhiteSpace(newPassword.Password))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

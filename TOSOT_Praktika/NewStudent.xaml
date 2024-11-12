@@ -29,10 +29,10 @@
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5,0,0,0" Grid.RowSpan="2">
             <Label Content="Новый специалист" Style="{StaticResource lable}" Margin="0,5,0,0" FontSize="16"></Label>
-            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="21" Margin="185,7,7,5"  Background="{x:Null}" Click="close_NewStudent" >
+            <Button Style="{StaticResource effect_button}" x:Name="closeNewStudent" Width="19" Margin="185,11,7,5"  Background="{x:Null}" Click="close_NewStudent" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
 
 
             </Button>
@@ -44,7 +44,7 @@
                         <ColumnDefinition Width="145*"/>
                         <ColumnDefinition Width="181*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\nophoto.jpg" MouseUp="foto_MouseUp"/>
+                    <Image x:Name="foto"  Grid.Column="0" Stretch="Uniform" ToolTip="ПКМ,чтобы загрузить фото" Margin="10,10,10,138" Source="Resources/nophoto.jpg" MouseUp="foto_MouseUp"/>
                     <Label Grid.Column="1" Content="Фамилия" Style="{StaticResource lable}" Margin="0,29,89,260" FontSize="16" />
                     <Border Grid.Column="1" BorderBrush="#FFB9B994" BorderThickness="1" CornerRadius="3,8,3,8" Margin="0,56,24,230">
                         <TextBox x:Name="lastName" BorderThickness="0" Margin="3,2,4,2" FontSize="14" />
@@ -56,10 +56,10 @@
                     <Border Style="{StaticResource OvalTexBox}" Width="Auto" Margin="0,201,25,84" Height="Auto" Grid.Column="1">
                         <TextBox x:Name="middleName" Style="{StaticResource TextBoxInOval}" FontSize="14" Height="Auto" Margin="5,3,5,2" />
                     </Border>
-                    <Button x:Name="Fix" Grid.Column="0" Style="{StaticResource MyButtonStyle}" Content="Закрепить" Margin="13,190,10,101" Width="Auto" Click="Fix_Click" Height="Auto"></Button>
-                    <Label Content="День рождения" Style="{StaticResource lable}" Margin="13,223,10,58" FontSize="16" />
+                    <Button x:Name="Fix" ToolTip="Нажмите, чтобы закрепить загруженное изображение для дальнейшего его добавления" Grid.Column="0" Style="{StaticResource MyButtonStyle}" Content="Закрепить" Margin="13,190,10,101" Width="Auto" Click="Fix_Click" Height="Auto"></Button>
+                    <Label Content="Дата рождения" Style="{StaticResource lable}" Margin="13,223,10,58" FontSize="16" />
                     <Border Style="{StaticResource OvalTexBox}" Margin="13,251,10,35" Width="Auto" Height="Auto">
-                        <DatePicker x:Name="Birthday"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14" SelectedDateFormat="Short"/>
+                        <DatePicker x:Name="Birthday1"  Margin="3,3,4,-1" BorderThickness="0" FontSize="14" SelectedDateFormat="Short"/>
                     </Border>
                     <Label Grid.Column="1" Content="Имя" Style="{StaticResource lable}" Margin="0,102,116,190" FontSize="16" />
                     <Label Grid.Column="1" Content="Отчество" Style="{StaticResource lable}" Margin="0,176,89,116" FontSize="16" />
@@ -118,7 +118,7 @@
                     </Border>
                     <Label Content="Конец обучения" Margin="14,10,20,267" Style="{StaticResource lable}" FontSize="16" Grid.Column="1"/>
                     <Border Grid.Column="0" Style="{StaticResource OvalTexBox}" Margin="22,111,0,175" Width="Auto" Height="Auto">
-                        <TextBox x:Name="numberSertificate" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14" IsReadOnly="True"/>
+                        <TextBox x:Name="numberSertificate" Style="{StaticResource TextBoxInOval}" Margin="3,3,3,2" Width="Auto" FontSize="14" />
                     </Border>
                     <Label Content="Номер удостоверения" Margin="22,84,148,205" Style="{StaticResource lable}" FontSize="16" Grid.ColumnSpan="2"/>
                     <Button x:Name="force_number_sertificate"  Content="Сформировать номер" Grid.Column="1" Style="{StaticResource MyButtonStyle}" Margin="5,114,20,177" Width="Auto" Height="Auto" Click="force_number_sertificate_Click"/>

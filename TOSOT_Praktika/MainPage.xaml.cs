@@ -22,13 +22,13 @@ namespace TOSOT_Praktika
 {
     public partial class MainPage : Page
     {
-        TOSOT db;
+        Model1Container1 db;
         List<Student> students = new List<Student>();
         public string GroupNumber { get; set; }
         public MainPage()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
             Load();
         }
         private void Load()
@@ -55,7 +55,7 @@ namespace TOSOT_Praktika
         }
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            if (EntryField.Text == "")
+            if (string.IsNullOrWhiteSpace(EntryField.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

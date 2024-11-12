@@ -39,7 +39,7 @@ namespace TOSOT_Praktika
         {
             get
             {
-                TOSOT db = new TOSOT();
+                Model1Container1 db = new Model1Container1();
                 string name = string.Empty;
                 foreach (var item in db.Course)
                 {

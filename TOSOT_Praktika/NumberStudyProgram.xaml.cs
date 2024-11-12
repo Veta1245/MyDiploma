@@ -17,12 +17,12 @@ namespace TOSOT_Praktika
 {
     public partial class NumberStudyProgram : Window
     {
-        TOSOT db;
+        Model1Container1 db;
         public static string PassingText;
         public NumberStudyProgram()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         private void closeNumderStudyProgram_Click(object sender, RoutedEventArgs e)
         {
@@ -39,7 +39,7 @@ namespace TOSOT_Praktika
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            db = new TOSOT();
+            db = new Model1Container1();
             list.ItemsSource = db.LearningProgram.OrderBy(x => x.KeyOfProgram.Length).ThenBy(x => x.KeyOfProgram).ToList();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -55,7 +55,7 @@ namespace TOSOT_Praktika
         }
         private void UpdateNewProgram_Click(object sender, RoutedEventArgs e)
         {
-            if (KeyOfProgram.Text == "" || NameProgram.Text == "")
+            if (string.IsNullOrWhiteSpace(KeyOfProgram.Text) || string.IsNullOrWhiteSpace(NameProgram.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();
@@ -73,6 +73,34 @@ namespace TOSOT_Praktika
             uRow.KeyOfProgram = Convert.ToString(KeyOfProgram.Text);
             db.SaveChanges();
             list.ItemsSource = db.LearningProgram.ToList();
+        }
+
+        private void AddNewProgram_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(KeyOfProgram.Text) || string.IsNullOrWhiteSpace(NameProgram.Text))
+            {
+                MessageBoxEmpty mbe = new MessageBoxEmpty();
+                mbe.Show();
+                return;
+            }
+            if (db.LearningProgram.Select(item => item.KeyOfProgram).Contains(KeyOfProgram.Text))
+            {
+                MessageBoxBusy mbb = new MessageBoxBusy();
+                mbb.Show();
+                return;
+            }
+           var name = NameProgram.Text;
+           var keyProgram = KeyOfProgram.Text;
+            LearningProgram newProgram = new LearningProgram
+            {
+                Name = name,
+                KeyOfProgram = Convert.ToString(keyProgram)
+            };
+            db.LearningProgram.Add(newProgram);
+            db.SaveChanges();
+            list.ItemsSource = db.LearningProgram.ToList();
+            
+
         }
     }
 }

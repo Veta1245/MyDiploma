@@ -25,7 +25,7 @@
             <Button Style="{StaticResource effect_button}" x:Name="closeNewFirm" Width="19" Margin="120,4,7,12"  Background="{x:Null}"  Click="closeNewFirm_Click">
                 <Button.ToolTip>Закрыть</Button.ToolTip>
 
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
 
 
             </Button>

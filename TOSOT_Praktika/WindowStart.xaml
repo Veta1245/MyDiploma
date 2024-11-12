@@ -15,15 +15,15 @@
                     <GradientStop Color="#FFF7F7CE" Offset="0.067"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\logo1.png" HorizontalAlignment="Left" Height="442" Margin="159,0,0,0" VerticalAlignment="Center" Width="488" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+            <Image Source="logo1.png" HorizontalAlignment="Left" Height="442" Margin="159,0,0,0" VerticalAlignment="Center" Width="488" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
         </Grid>
-        <Frame x:Name="MyFrame" Margin="163,52,168,84"  Height="306" Width="461" NavigationUIVisibility="Hidden"  />
+        <Frame x:Name="MyFrame" Margin="163,52,168,84"  Height="306" Width="461" NavigationUIVisibility="Hidden"   />
 
         <Button Style="{StaticResource effect_button}" x:Name="close_windowStart" Margin="756,16,10,400" BorderThickness="0" Background="{x:Null}" Click="close_windowStart_Click" >
             <Button.ToolTip>Закрыть</Button.ToolTip>
             <Button.Content >
                 <Grid Margin="0 0 0 0">
-                    <Image Margin="-8,-6,-8,-6" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png"/>
+                    <Image Margin="-8,-6,-8,-6" Source="Resources/3.png"/>
                 </Grid>
             </Button.Content>
 

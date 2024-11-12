@@ -17,11 +17,11 @@ namespace TOSOT_Praktika
 {
     public partial class PageALLCertificateNumber : Page
     {
-        TOSOT db;
+        Model1Container1 db;
         public PageALLCertificateNumber()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {        

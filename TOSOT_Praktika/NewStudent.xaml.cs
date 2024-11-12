@@ -19,7 +19,7 @@ namespace TOSOT_Praktika
 {
     public partial class NewStudent : Window
     {
-        TOSOT db = new TOSOT();
+        Model1Container1 db = new Model1Container1();
         public static string PassingText;
         public static string PassingText2;
         public NewStudent()
@@ -27,7 +27,25 @@ namespace TOSOT_Praktika
             InitializeComponent();
             LoadComboBox();
             LoadProperties();
+            ClearForm();
         }
+
+        private void ClearForm()
+        {
+            firstName.Text = string.Empty;
+            lastName.Text = string.Empty;
+            middleName.Text = string.Empty;
+            Birthday1.SelectedDate = DateTime.Now;
+            foto.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/nophoto.jpg"));
+            listFirm.SelectedItem = null;   
+            position.Text = string.Empty;
+            listeducation.SelectedItem = null;
+            numberdiploma.Text = string.Empty;  
+            beginLearning.SelectedDate = DateTime.Now;
+            endLearning.SelectedDate = DateTime.Now;
+            listLearningProgramm.SelectedItem = null;
+        }
+
         void LoadComboBox()
         {
             listLearningProgramm.ItemsSource = db.TrainingProgram.ToList();
@@ -39,7 +57,7 @@ namespace TOSOT_Praktika
             lastName.Text = Properties.Settings.Default.TextBoxlastname;
             firstName.Text = Properties.Settings.Default.TextBoxfirstname;
             middleName.Text = Properties.Settings.Default.TextBoxmiddlename;
-            Birthday.SelectedDate = Properties.Settings.Default.datepickerbirthday;
+            Birthday1.SelectedDate = Properties.Settings.Default.datepickerbirthday;
             position.Text = Properties.Settings.Default.TextBoxposition;
             numberdiploma.Text = Properties.Settings.Default.TextBoxnumberdiploma;
             listFirm.SelectedIndex = Convert.ToInt32(Properties.Settings.Default.ComboBoxlistfirm);
@@ -55,11 +73,9 @@ namespace TOSOT_Praktika
             }
             catch (Exception err)
             {
-
-                MessageBox.Show(err.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(err.Message, "Внимание! Требуется обязательно загрузить фото", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-            }
-                    
+            }     
         }
 
         public string FilePath = string.Empty;
@@ -112,43 +128,55 @@ namespace TOSOT_Praktika
             SaveProperties();
             Firm firm = (Firm)listFirm.SelectedItem;
             TrainingProgram trainingProg = (TrainingProgram)listLearningProgramm.SelectedItem;
-            if (lastName.Text == "" || firstName.Text == "" || middleName.Text == "" || Birthday.SelectedDate == null || listFirm.SelectedItem == null || position.Text == "" || listeducation.SelectedItem == null || numberdiploma.Text == "" || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || numberSertificate.Text == "" || listLearningProgramm.SelectedItem == null)
+            if (string.IsNullOrWhiteSpace(lastName.Text) || string.IsNullOrWhiteSpace(firstName.Text) || string.IsNullOrWhiteSpace(middleName.Text) || Birthday1.SelectedDate == null || listFirm.SelectedItem == null || string.IsNullOrWhiteSpace(position.Text) || listeducation.SelectedItem == null || string.IsNullOrWhiteSpace(numberdiploma.Text) || beginLearning.SelectedDate == null || endLearning.SelectedDate == null || string.IsNullOrWhiteSpace(numberSertificate.Text) || listLearningProgramm.SelectedItem == null)
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();
                 return;
             }
-            Student NewStudent = new Student()
+            if(db.Student.Select(item=>item.Number_of_certificate).Contains(numberSertificate.Text))
             {
-                LastName = lastName.Text,
-                FirstName = firstName.Text,
-                MiddleName = middleName.Text,
-                Birthday = Convert.ToDateTime(Birthday.SelectedDate),
-                Firm = firm,
-                Post = position.Text,
-                NimberDiploma = numberdiploma.Text,
-                Education = listeducation.Text,
-                BeginLearning = Convert.ToDateTime(beginLearning.SelectedDate),
-                EndLearning = Convert.ToDateTime(endLearning.SelectedDate),
-                Number_of_certificate = numberSertificate.Text,
-                TrainingProgram = trainingProg,
-                Student_photo = ConvertImageToByteClass.ImageToByte(Properties.Settings.Default.Photo)
-            };
-            db.Student.Add(NewStudent);
-            db.SaveChanges();
-            MessageBoxInsert mbi = new MessageBoxInsert();
-            mbi.Show();
+                MessageBoxBusy mbb = new MessageBoxBusy();
+                mbb.Show();
+                return;
+            }
+            else
+            {
+                Student NewStudent = new Student()
+                {
+                    LastName = lastName.Text,
+                    FirstName = firstName.Text,
+                    MiddleName = middleName.Text,
+                    Birthday = Convert.ToDateTime(Birthday1.SelectedDate),
+                    Firm = firm,
+                    Post = position.Text,
+                    NimberDiploma = numberdiploma.Text,
+                    Education = listeducation.Text,
+                    BeginLearning = Convert.ToDateTime(beginLearning.SelectedDate),
+                    EndLearning = Convert.ToDateTime(endLearning.SelectedDate),
+                    Number_of_certificate = numberSertificate.Text,
+                    TrainingProgram = trainingProg,
+                    Student_photo = ConvertImageToByteClass.ImageToByte(Properties.Settings.Default.Photo)
+                };
+                db.Student.Add(NewStudent);
+                db.SaveChanges();
+                MessageBoxInsert mbi = new MessageBoxInsert();
+                mbi.Show();
+            }
+            
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             numberSertificate.Text = FormNumberSertificate.PassingText1;
+
+
         }
         private void SaveProperties()
         {
             Properties.Settings.Default.TextBoxlastname = lastName.Text;
             Properties.Settings.Default.TextBoxfirstname = firstName.Text;
             Properties.Settings.Default.TextBoxmiddlename = middleName.Text;
-            Properties.Settings.Default.datepickerbirthday = Birthday.SelectedDate.Value;
+            Properties.Settings.Default.datepickerbirthday = Birthday1.SelectedDate.Value;
             Properties.Settings.Default.ComboBoxlistfirm = listFirm.SelectedIndex;
             Properties.Settings.Default.ComboBoxlisteducation = listeducation.SelectedIndex;
             Properties.Settings.Default.TextBoxposition = position.Text;
@@ -157,7 +185,15 @@ namespace TOSOT_Praktika
             Properties.Settings.Default.DatePickerEndLearning = endLearning.SelectedDate.Value;
             Properties.Settings.Default.TextBoxNumberSertificate = numberSertificate.Text;
             Properties.Settings.Default.ComboBoxListLearningProgram = listLearningProgramm.SelectedIndex;
-            Properties.Settings.Default.Photo = (foto.Source as BitmapImage).UriSource.OriginalString;
+            if(foto.Source is BitmapImage bitmapImage && bitmapImage.UriSource != null)
+            {
+                Properties.Settings.Default.Photo = bitmapImage.UriSource.OriginalString;
+            }
+            else
+            {
+                Properties.Settings.Default.Photo = string.Empty;
+            }
+            
             Properties.Settings.Default.Save();
         }
         private void Fix_Click(object sender, RoutedEventArgs e)

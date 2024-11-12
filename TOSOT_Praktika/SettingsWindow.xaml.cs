@@ -49,7 +49,7 @@ namespace TOSOT_Praktika
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (BootPath.Text == "")
+            if (string.IsNullOrWhiteSpace(BootPath.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

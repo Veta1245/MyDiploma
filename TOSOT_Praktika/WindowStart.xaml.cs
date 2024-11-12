@@ -37,5 +37,7 @@ namespace TOSOT_Praktika
                 this.DragMove();
             }
         }
+
+        
     }
 }

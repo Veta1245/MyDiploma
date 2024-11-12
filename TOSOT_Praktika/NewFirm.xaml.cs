@@ -16,11 +16,11 @@ namespace TOSOT_Praktika
 {
     public partial class NewFirm : Window
     {
-        TOSOT db;
+        Model1Container1 db;
         public NewFirm()
         {
             InitializeComponent();
-            db = new TOSOT();
+            db = new Model1Container1();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -32,7 +32,7 @@ namespace TOSOT_Praktika
         }
         private void insert_new_firm_Click(object sender, RoutedEventArgs e)
         {
-            if (NameFirm.Text == "")
+            if (string.IsNullOrWhiteSpace(NameFirm.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();

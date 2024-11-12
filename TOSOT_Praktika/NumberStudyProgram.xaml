@@ -33,9 +33,9 @@
         </Grid>
         <Label Grid.Row="0" Margin="10,5,200,295" Content="Список номеров программ обучения" Style="{StaticResource lable}" FontSize="16" Grid.RowSpan="2"></Label>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="344,0,0,295" Grid.RowSpan="2">
-            <Button Style="{StaticResource effect_button}" x:Name="closeNumderStudyProgram" Width="21" Margin="125,3,7,5"  Background="{x:Null}" Click="closeNumderStudyProgram_Click" >
+            <Button Style="{StaticResource effect_button}" x:Name="closeNumderStudyProgram" Width="19" Margin="125,8,7,13"  Background="{x:Null}" Click="closeNumderStudyProgram_Click" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
-                <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
+                <Image Source="Resources/3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="28"/>
             </Button>
         </StackPanel>
         <Grid Grid.Row="1" Height="301" VerticalAlignment="Bottom" Margin="0,0,0,-1" Grid.RowSpan="2">
@@ -58,7 +58,8 @@
                     <TextBox x:Name="reserve" Height="23" TextWrapping="Wrap"  Margin="0,0,127,0" Text="{Binding SelectedItem.KeyOfProgram,  ElementName=list}" Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
-            <Button x:Name="UpdateNewProgram" Content="Редактировать" ToolTip="ПКН развернуть для редактирования, ЛКМ редактировать" Margin="347,211,24,58" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="UpdateNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown"/>
+            <Button x:Name="UpdateNewProgram" Content="Редактировать" ToolTip="ПКМ развернуть для редактирования, ЛКМ редактировать" Margin="347,211,24,58" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="UpdateNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown" Cursor="Hand"/>
+            <Button x:Name="AddNewProgram" Content="Добавить" ToolTip="ПКМ развернуть для добавления, ЛКМ добавить" Margin="347,174,24,95" Style="{StaticResource MyButtonStyle}" Width="Auto" Height="Auto" Click="AddNewProgram_Click"  FontSize="14" Grid.RowSpan="2" FontWeight="Bold" MouseRightButtonDown="InsertNewProgram_MouseRightButtonDown" Cursor="Hand"/>
         </Grid>
     </Grid>
 

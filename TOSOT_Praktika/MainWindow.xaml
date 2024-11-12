@@ -30,7 +30,7 @@
         </Grid>
         <Frame Grid.Row="2" x:Name="myFrame" NavigationUIVisibility="Hidden" Margin="12,9,9,3"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="258" Margin="0,4,0,0" Grid.RowSpan="2">
-            <Image x:Name="logo" Margin="10,0,0,0" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\logo1.png" RenderTransformOrigin="0.726,0.45" Width="30" />
+            <Image x:Name="logo" Margin="10,0,0,0" Source="Resources/logo1.png" RenderTransformOrigin="0.726,0.45" Width="30" />
             <TextBlock Text="OOO &quot;ТОЦОТ&quot;" VerticalAlignment="Center"  Foreground="#FF1D5906" Margin="10,10,0,10" FontSize="16" FontWeight="Bold" Height="20"></TextBlock>
 
         </StackPanel>
@@ -40,7 +40,7 @@
                     <ImageBrush/>
                 </Button.Background>
                 <Grid>
-                    <Image Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\settings.png" Height="26" OpacityMask="#FFF0F0EB"/>
+                    <Image Source="Resources/settings.png" Height="26" OpacityMask="#FFF0F0EB"/>
                 </Grid>
             </Button>
             <Button x:Name="collapse" Width="26" Margin="5,5,0,9" BorderThickness="0"  Style="{StaticResource effect_button}" Click="Minimised">
@@ -49,13 +49,13 @@
                     <ImageBrush/>
                 </Button.Background>
                 <Grid Margin="0,0,0,0">
-                    <Image  Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\1.png" Height="26" OpacityMask="#FFF0F0EB"/>
+                    <Image  Source="Resources/1.png" Height="26" OpacityMask="#FFF0F0EB"/>
                 </Grid>
             </Button>
             <Button Style="{StaticResource effect_button}" x:Name="close_window" Width="26" Margin="10,4,0,10" BorderThickness="0" Background="{x:Null}" Click="close_program" >
                 <Button.ToolTip>Закрыть</Button.ToolTip>
                 <Grid Margin="0,0,0,0">
-                    <Image Margin="-4,-5,-4,-6" Source="C:\Users\Veta\Desktop\TOSOT_Praktikaaaa\TOSOT_Praktika\Resources\3.png" Height="38" Width="35"/>
+                    <Image Margin="-4,-5,-4,-6" Source="Resources/3.png" Height="38" Width="35"/>
                 </Grid>
 
             </Button>

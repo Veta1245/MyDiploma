@@ -21,7 +21,7 @@ namespace TOSOT_Praktika
 {
     public partial class FormNumberSertificate : Window
     {
-        TOSOT db = new TOSOT();
+        Model1Container1 db = new Model1Container1();
         string text = string.Empty;
         public static string PassingText;
         public static string PassingText1;
@@ -29,6 +29,15 @@ namespace TOSOT_Praktika
         {
             InitializeComponent();
             Load();
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            yearLearning.Text = string.Empty;
+            numberGroup.Text = string.Empty;
+            listworker.SelectedItem = null; 
+            studyProgram.Text = string.Empty;
         }
 
         void Load()
@@ -76,7 +85,7 @@ namespace TOSOT_Praktika
         }
         public void collectNumber_Click(object sender, RoutedEventArgs e)
         {
-            if (yearLearning.Text == "" || numberGroup.Text == "" || studyProgram.Text == "")
+            if (string.IsNullOrWhiteSpace(yearLearning.Text) || string.IsNullOrWhiteSpace(numberGroup.Text) || string.IsNullOrWhiteSpace(studyProgram.Text))
             {
                 MessageBoxEmpty mbe = new MessageBoxEmpty();
                 mbe.Show();
